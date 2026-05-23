@@ -140,7 +140,7 @@ def make_cards(ranked):
                 <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:0.8px;margin-bottom:6px;">
                     STRENGTHS
                 </div>
-                <ul style="margin:0;padding-left:16px;font-size:12.5px;color:#374151;line-height:1.6;">
+                <ul style="margin:0;padding-left:16px;font-size:12.5px;color:#0f172a;line-height:1.6;">
                     {strengths}
                 </ul>
             </div>
@@ -150,7 +150,7 @@ def make_cards(ranked):
                 <div style="font-size:11px;font-weight:700;color:#64748b;letter-spacing:0.8px;margin-bottom:6px;">
                     GAPS
                 </div>
-                <ul style="margin:0;padding-left:16px;font-size:12.5px;color:#374151;line-height:1.6;">
+                <ul style="margin:0;padding-left:16px;font-size:12.5px;color:#0f172a;line-height:1.6;">
                     {gaps}
                 </ul>
             </div>
@@ -172,7 +172,7 @@ def make_cards(ranked):
 
     wrapper = f"""
     <div style="margin-top:32px;">
-        <h2 style="text-align:center;font-size:22px;font-weight:800;color:#1e293b;margin-bottom:20px;">
+        <h2 style="text-align:center;font-size:22px;font-weight:800;color:#6366f1;margin-bottom:20px;">
             🏆 Ranked Candidates <span style="font-size:14px;font-weight:500;color:#94a3b8;">({n} results)</span>
         </h2>
         <div style="display:grid;grid-template-columns:{grid_cols};gap:18px;width:100%;">
@@ -227,6 +227,15 @@ custom_css = """
     width: 100%;
 }
 footer { display: none !important; }
+
+/* Force override Gradio's default faded text on list items */
+#results-section ul li,
+#results-section ul li *,
+.candidate-list-item {
+    color: #0f172a !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+}
 """
 
 with gr.Blocks(title="🤖 Intelligent Recruiter", theme=gr.themes.Soft(), css=custom_css) as demo:
@@ -234,7 +243,7 @@ with gr.Blocks(title="🤖 Intelligent Recruiter", theme=gr.themes.Soft(), css=c
     gr.Markdown("""
     <div style="text-align:center;padding:24px 0 8px 0;">
         <div style="font-size:36px;margin-bottom:8px;">🤖</div>
-        <h1 style="font-size:28px;font-weight:800;color:#1e293b;margin:0;">Intelligent Recruiter Agent</h1>
+        <h1 style="font-size:28px;font-weight:800;color:#6366f1;margin:0;">Intelligent Recruiter Agent</h1>
         <p style="color:#64748b;margin-top:6px;font-size:15px;">Powered by Morpheus AI × Hugging Face</p>
     </div>
     """)
