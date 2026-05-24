@@ -2,12 +2,11 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-print("API KEY:", os.getenv("MORPHEUS_API_KEY"))  # should print your key
+print("API KEY:", os.getenv("MORPHEUS_API_KEY")) 
 
 from data_loader import prepare_candidates
 from agent import rank_candidates
 
-# ── 1. Define your Job Description ──────────────────────────────
 job_description = """
 Job Title: DevOps Engineer
 
@@ -20,13 +19,10 @@ Requirements:
 - Monitoring tools like Grafana or Prometheus
 """
 
-# ── 2. Load candidates from Hugging Face ────────────────────────
-candidates = prepare_candidates(limit=10)  # start with 10 for speed
+candidates = prepare_candidates(limit=10)
 
-# ── 3. Run the AI recruiter agent ───────────────────────────────
 ranked = rank_candidates(job_description, candidates)
 
-# ── 4. Display results ──────────────────────────────────────────
 print("\n" + "="*50)
 print("🏆 RANKED CANDIDATES")
 print("="*50)

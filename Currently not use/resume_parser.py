@@ -16,6 +16,6 @@ def load_resumes_from_folder(folder: str) -> list:
             candidates.append({
                 "id": i + 1,
                 "name": filename.replace(".pdf", ""),
-                "resume_text": text[:2000]  # trim to avoid token overflow
+                "resume_text": text[:2000]
             })
     return candidates

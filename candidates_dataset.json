@@ -1,0 +1,3193 @@
+{
+  "total": 50,
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Ahmad Farid bin Zulkifli",
+      "current_role": "Senior Software Engineer",
+      "years_experience": 7,
+      "email": "yongli83037@gmail.com",
+      "phone": "+6012-3847291",
+      "location": "Kuala Lumpur",
+      "summary": "Experienced backend engineer with 7 years building scalable microservices for fintech companies. Passionate about clean architecture and cloud-native solutions. Led multiple high-impact projects at Maybank and Grab Malaysia.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Software Engineering",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2017,
+          "cgpa": "3.62/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Grab Malaysia",
+          "duration": "Mar 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Architected microservices handling 2M+ daily transactions using Go and Kubernetes",
+            "Led a team of 5 engineers to deliver the GrabPay wallet redesign",
+            "Reduced API latency by 40% through Redis caching and query optimization"
+          ]
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Maybank",
+          "duration": "Jun 2017 - Feb 2021",
+          "years": 4,
+          "responsibilities": [
+            "Built RESTful APIs for MAE mobile banking app using Java Spring Boot",
+            "Integrated third-party payment gateways including FPX and DuitNow",
+            "Maintained CI/CD pipelines using Jenkins and Docker"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Java",
+          "Go",
+          "Kubernetes",
+          "PostgreSQL"
+        ],
+        "tools": [
+          "Docker",
+          "Jenkins",
+          "Redis",
+          "AWS",
+          "Git"
+        ],
+        "soft_skills": [
+          "Team Leadership",
+          "Problem Solving",
+          "Agile"
+        ]
+      },
+      "certifications": [
+        "AWS Certified Solutions Architect",
+        "Certified Kubernetes Administrator (CKA)"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Xin Yi Tan",
+      "current_role": "Data Scientist",
+      "years_experience": 5,
+      "email": "xinyi.tan@gmail.com",
+      "phone": "+6016-7234981",
+      "location": "Petaling Jaya",
+      "summary": "Data scientist specializing in NLP and predictive modeling for e-commerce. Built recommendation engines serving 10M+ users at Shopee. Strong background in Python, TensorFlow, and statistical analysis.",
+      "education": [
+        {
+          "degree": "Master of Data Science",
+          "field": "Artificial Intelligence",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2019,
+          "cgpa": "3.75/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Data Scientist",
+          "company": "Shopee Malaysia",
+          "duration": "Jan 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built product recommendation engine improving CTR by 23% using collaborative filtering",
+            "Developed NLP models for automated customer review classification",
+            "Deployed ML models to production using MLflow and AWS SageMaker"
+          ]
+        },
+        {
+          "title": "Junior Data Analyst",
+          "company": "CIMB Group",
+          "duration": "Jul 2019 - Dec 2019",
+          "years": 1,
+          "responsibilities": [
+            "Analyzed customer transaction data to identify churn patterns",
+            "Created dashboards using Tableau for senior management reporting"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "TensorFlow",
+          "PyTorch",
+          "SQL",
+          "R"
+        ],
+        "tools": [
+          "MLflow",
+          "AWS SageMaker",
+          "Tableau",
+          "Apache Spark",
+          "Jupyter"
+        ],
+        "soft_skills": [
+          "Analytical Thinking",
+          "Communication",
+          "Collaboration"
+        ]
+      },
+      "certifications": [
+        "Google Professional Data Engineer",
+        "TensorFlow Developer Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Arjun Krishnan",
+      "current_role": "DevOps Engineer",
+      "years_experience": 6,
+      "email": "arjun.krishnan@gmail.com",
+      "phone": "+6011-4523897",
+      "location": "Cyberjaya",
+      "summary": "Passionate DevOps engineer with 6 years of experience automating infrastructure and streamlining deployments. Expert in Kubernetes, Terraform, and cloud platforms. Reduced deployment time by 70% at Axiata.",
+      "education": [
+        {
+          "degree": "Bachelor of Information Technology",
+          "field": "Network Computing",
+          "institution": "Multimedia University (MMU)",
+          "year": 2018,
+          "cgpa": "3.45/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior DevOps Engineer",
+          "company": "Axiata Group",
+          "duration": "Apr 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Managed Kubernetes clusters across AWS and Azure serving 50M+ subscribers",
+            "Implemented GitOps workflows using ArgoCD reducing deployment failures by 60%",
+            "Built monitoring stack using Prometheus, Grafana and ELK for real-time alerting"
+          ]
+        },
+        {
+          "title": "System Administrator",
+          "company": "Telekom Malaysia",
+          "duration": "Aug 2018 - Mar 2020",
+          "years": 2,
+          "responsibilities": [
+            "Maintained Linux servers and network infrastructure for enterprise clients",
+            "Automated server provisioning using Ansible and Terraform",
+            "Managed backup and disaster recovery procedures"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Kubernetes",
+          "Terraform",
+          "Docker",
+          "Linux",
+          "Python"
+        ],
+        "tools": [
+          "ArgoCD",
+          "Prometheus",
+          "Grafana",
+          "AWS",
+          "Azure"
+        ],
+        "soft_skills": [
+          "Attention to Detail",
+          "Problem Solving",
+          "Documentation"
+        ]
+      },
+      "certifications": [
+        "AWS Certified DevOps Engineer",
+        "Certified Kubernetes Administrator (CKA)",
+        "HashiCorp Terraform Associate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Nur Aisyah binti Razali",
+      "current_role": "Product Manager",
+      "years_experience": 8,
+      "email": "nuraisyah.razali@gmail.com",
+      "phone": "+6019-6284751",
+      "location": "Kuala Lumpur",
+      "summary": "Strategic product manager with 8 years driving digital product growth in fintech and e-commerce. Led product teams of 15+ members and launched features used by millions of Malaysians. MBA graduate from UM.",
+      "education": [
+        {
+          "degree": "Master of Business Administration",
+          "field": "Technology Management",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2016,
+          "cgpa": "3.80/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Product Manager",
+          "company": "Funding Societies",
+          "duration": "Feb 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Owned end-to-end product roadmap for SME lending platform processing RM500M+ annually",
+            "Defined OKRs and drove 40% YoY growth in loan disbursements",
+            "Collaborated with engineering, design and data teams in 2-week sprint cycles"
+          ]
+        },
+        {
+          "title": "Product Manager",
+          "company": "AirAsia",
+          "duration": "Jan 2016 - Jan 2019",
+          "years": 3,
+          "responsibilities": [
+            "Launched AirAsia Super App features used by 8M+ users",
+            "Conducted user research and A/B testing to optimize booking conversion funnel",
+            "Defined product requirements and acceptance criteria for engineering team"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Product Roadmapping",
+          "SQL",
+          "Data Analytics",
+          "A/B Testing",
+          "JIRA"
+        ],
+        "tools": [
+          "Figma",
+          "Mixpanel",
+          "Google Analytics",
+          "Confluence",
+          "Miro"
+        ],
+        "soft_skills": [
+          "Strategic Thinking",
+          "Stakeholder Management",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "Certified Product Manager (CPM)",
+        "Google Analytics Certified"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Wei Liang Tan",
+      "current_role": "Full Stack Developer",
+      "years_experience": 4,
+      "email": "weiliang.tan@gmail.com",
+      "phone": "+6017-3928461",
+      "location": "Penang",
+      "summary": "Full stack developer with expertise in React and Node.js, building SaaS products for Malaysian SMEs. Contributed to open source projects and active in the local developer community in Penang.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Information Systems",
+          "institution": "Universiti Sains Malaysia (USM)",
+          "year": 2020,
+          "cgpa": "3.55/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Full Stack Developer",
+          "company": "StoreHub",
+          "duration": "Sep 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built POS system dashboard using React and TypeScript used by 5,000+ merchants",
+            "Developed REST APIs using Node.js and Express with PostgreSQL backend",
+            "Implemented real-time inventory tracking using WebSockets and Redis"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "React",
+          "Node.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Python"
+        ],
+        "tools": [
+          "Docker",
+          "AWS",
+          "Git",
+          "Figma",
+          "Postman"
+        ],
+        "soft_skills": [
+          "Fast Learner",
+          "Teamwork",
+          "Initiative"
+        ]
+      },
+      "certifications": [
+        "AWS Certified Developer"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Priya Devi Subramaniam",
+      "current_role": "Data Engineer",
+      "years_experience": 5,
+      "email": "priya.devi@gmail.com",
+      "phone": "+6014-5839201",
+      "location": "Kuala Lumpur",
+      "summary": "Data engineer specializing in building scalable ETL pipelines and data warehouses for banking and insurance sectors. Expert in Apache Spark, Airflow, and cloud data platforms.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Data Engineering",
+          "institution": "Asia Pacific University (APU)",
+          "year": 2019,
+          "cgpa": "3.68/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Data Engineer",
+          "company": "Hong Leong Bank",
+          "duration": "Jul 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Designed and maintained data pipelines processing 50GB+ daily transaction data using Apache Spark",
+            "Built data warehouse on AWS Redshift enabling real-time reporting for 500+ analysts",
+            "Automated ETL workflows using Apache Airflow reducing manual intervention by 80%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Apache Spark",
+          "SQL",
+          "Scala",
+          "dbt"
+        ],
+        "tools": [
+          "Apache Airflow",
+          "AWS Redshift",
+          "Kafka",
+          "Databricks",
+          "Tableau"
+        ],
+        "soft_skills": [
+          "Analytical Thinking",
+          "Documentation",
+          "Reliability"
+        ]
+      },
+      "certifications": [
+        "AWS Certified Data Analytics",
+        "Databricks Certified Associate Developer"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Muhammad Haziq bin Ismail",
+      "current_role": "Machine Learning Engineer",
+      "years_experience": 3,
+      "email": "muhammad.haziq@gmail.com",
+      "phone": "+6018-7462931",
+      "location": "Cyberjaya",
+      "summary": "ML engineer focused on productionizing machine learning models for real-world applications. Built fraud detection and recommendation systems at Grab and PolicyStreet.",
+      "education": [
+        {
+          "degree": "Bachelor of Artificial Intelligence",
+          "field": "Machine Learning",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2021,
+          "cgpa": "3.72/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Machine Learning Engineer",
+          "company": "PolicyStreet",
+          "duration": "Jun 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Built insurance fraud detection model with 94% precision reducing fraudulent claims by 35%",
+            "Deployed ML models as REST APIs using FastAPI and Docker on AWS ECS",
+            "Implemented model monitoring and retraining pipelines using MLflow"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "TensorFlow",
+          "PyTorch",
+          "FastAPI",
+          "SQL"
+        ],
+        "tools": [
+          "MLflow",
+          "Docker",
+          "AWS ECS",
+          "Scikit-learn",
+          "Kubeflow"
+        ],
+        "soft_skills": [
+          "Research Mindset",
+          "Problem Solving",
+          "Curiosity"
+        ]
+      },
+      "certifications": [
+        "TensorFlow Developer Certificate",
+        "AWS Machine Learning Specialty"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Siti Nabilah binti Ahmad",
+      "current_role": "UX Designer",
+      "years_experience": 6,
+      "email": "siti.nabilah@gmail.com",
+      "phone": "+6012-8374621",
+      "location": "Kuala Lumpur",
+      "summary": "Senior UX designer with 6 years crafting intuitive digital experiences for fintech and healthcare apps. Led design systems used across multiple products at Maybank. Combines research-driven insights with strong visual design skills.",
+      "education": [
+        {
+          "degree": "Bachelor of Design",
+          "field": "Interaction Design",
+          "institution": "Taylor's University",
+          "year": 2018,
+          "cgpa": "3.65/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior UX Designer",
+          "company": "Maybank",
+          "duration": "Mar 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Led redesign of MAE banking app improving user satisfaction score from 3.2 to 4.6/5",
+            "Built and maintained Maybank design system used by 30+ product teams",
+            "Conducted user research with 200+ participants to inform product decisions"
+          ]
+        },
+        {
+          "title": "UX Designer",
+          "company": "Lazada Malaysia",
+          "duration": "Jul 2018 - Feb 2020",
+          "years": 2,
+          "responsibilities": [
+            "Designed checkout flow improvements reducing cart abandonment by 18%",
+            "Created high-fidelity prototypes for A/B testing with 1M+ users"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Figma",
+          "Adobe XD",
+          "Prototyping",
+          "User Research",
+          "Usability Testing"
+        ],
+        "tools": [
+          "Maze",
+          "Hotjar",
+          "InVision",
+          "Zeplin",
+          "Miro"
+        ],
+        "soft_skills": [
+          "Empathy",
+          "Presentation",
+          "Collaboration"
+        ]
+      },
+      "certifications": [
+        "Google UX Design Certificate",
+        "Nielsen Norman UX Certification"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Kai Xian Wong",
+      "current_role": "Backend Developer",
+      "years_experience": 4,
+      "email": "kaixian.wong@gmail.com",
+      "phone": "+6016-2847391",
+      "location": "Shah Alam",
+      "summary": "Backend developer specializing in high-performance APIs and distributed systems. Built payment processing services handling RM1B+ annually at Revenue Monster. Strong expertise in Java Spring Boot and microservices.",
+      "education": [
+        {
+          "degree": "Bachelor of Software Engineering",
+          "field": "Computer Science",
+          "institution": "Universiti Teknologi MARA (UiTM)",
+          "year": 2020,
+          "cgpa": "3.58/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Backend Developer",
+          "company": "Revenue Monster",
+          "duration": "Aug 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built payment API gateway processing 500K+ daily transactions with 99.99% uptime",
+            "Implemented OAuth 2.0 and JWT authentication for merchant portal serving 10K+ merchants",
+            "Optimized database queries reducing response time from 800ms to 120ms"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Java",
+          "Spring Boot",
+          "Python",
+          "PostgreSQL",
+          "MongoDB"
+        ],
+        "tools": [
+          "Docker",
+          "Kubernetes",
+          "RabbitMQ",
+          "Redis",
+          "Postman"
+        ],
+        "soft_skills": [
+          "Precision",
+          "Accountability",
+          "Teamwork"
+        ]
+      },
+      "certifications": [
+        "Oracle Java SE Programmer",
+        "AWS Certified Developer"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Kavitha Rajan",
+      "current_role": "Business Analyst",
+      "years_experience": 7,
+      "email": "kavitha.rajan@gmail.com",
+      "phone": "+6011-9283746",
+      "location": "Kuala Lumpur",
+      "summary": "Business analyst bridging business needs and technical solutions in banking and insurance. Expert in requirements gathering, process modeling, and stakeholder management. Led digital transformation initiatives at CIMB.",
+      "education": [
+        {
+          "degree": "Bachelor of Business Administration",
+          "field": "Information Systems",
+          "institution": "Sunway University",
+          "year": 2017,
+          "cgpa": "3.70/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Business Analyst",
+          "company": "CIMB Group",
+          "duration": "Apr 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Led requirements gathering for core banking system migration affecting 8M customers",
+            "Produced 200+ BRDs, FRDs and use case documents for digital banking projects",
+            "Facilitated workshops with C-suite stakeholders to align business and IT strategy"
+          ]
+        },
+        {
+          "title": "Business Analyst",
+          "company": "AmBank Group",
+          "duration": "Jul 2017 - Mar 2018",
+          "years": 1,
+          "responsibilities": [
+            "Documented as-is and to-be business processes for loan origination system",
+            "Performed UAT coordination and defect tracking using JIRA"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Requirements Analysis",
+          "Process Modeling",
+          "SQL",
+          "BPMN",
+          "UML"
+        ],
+        "tools": [
+          "JIRA",
+          "Confluence",
+          "Visio",
+          "Excel",
+          "Power BI"
+        ],
+        "soft_skills": [
+          "Stakeholder Management",
+          "Communication",
+          "Critical Thinking"
+        ]
+      },
+      "certifications": [
+        "Certified Business Analysis Professional (CBAP)",
+        "IIBA ECBA"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Amirul Hakim bin Roslan",
+      "current_role": "Cloud Engineer",
+      "years_experience": 5,
+      "email": "amirul.hakim@gmail.com",
+      "phone": "+6013-7483921",
+      "location": "Putrajaya",
+      "summary": "Cloud engineer with deep expertise in AWS and Azure, managing infrastructure for Malaysian government digital initiatives. Certified in multiple cloud platforms with a strong security-first mindset.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Network Security",
+          "institution": "Universiti Kebangsaan Malaysia (UKM)",
+          "year": 2019,
+          "cgpa": "3.50/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Cloud Engineer",
+          "company": "IBM Malaysia",
+          "duration": "May 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Architected hybrid cloud solutions for 3 Malaysian government agencies",
+            "Implemented cloud security controls achieving ISO 27001 compliance",
+            "Reduced infrastructure costs by 45% through rightsizing and reserved instances"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "AWS",
+          "Azure",
+          "Terraform",
+          "Python",
+          "Linux"
+        ],
+        "tools": [
+          "CloudFormation",
+          "Azure DevOps",
+          "Ansible",
+          "Prometheus",
+          "Vault"
+        ],
+        "soft_skills": [
+          "Security Mindset",
+          "Documentation",
+          "Problem Solving"
+        ]
+      },
+      "certifications": [
+        "AWS Solutions Architect Professional",
+        "Azure Administrator Associate",
+        "CISSP"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Hui Ling Lim",
+      "current_role": "Data Analyst",
+      "years_experience": 3,
+      "email": "huiling.lim@gmail.com",
+      "phone": "+6017-6293847",
+      "location": "Petaling Jaya",
+      "summary": "Data analyst with a passion for turning raw data into actionable business insights in retail and e-commerce. Proficient in Python, SQL and Tableau with experience building executive dashboards.",
+      "education": [
+        {
+          "degree": "Bachelor of Statistics",
+          "field": "Data Analytics",
+          "institution": "Universiti Putra Malaysia (UPM)",
+          "year": 2021,
+          "cgpa": "3.63/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Data Analyst",
+          "company": "Lazada Malaysia",
+          "duration": "Sep 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Built 15+ executive dashboards using Tableau tracking GMV, seller performance and logistics KPIs",
+            "Analyzed A/B test results for marketing campaigns generating RM2M+ incremental revenue",
+            "Automated weekly reporting using Python reducing manual effort by 6 hours per week"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "SQL",
+          "R",
+          "Statistics",
+          "Excel"
+        ],
+        "tools": [
+          "Tableau",
+          "Power BI",
+          "Google Analytics",
+          "Looker",
+          "Jupyter"
+        ],
+        "soft_skills": [
+          "Attention to Detail",
+          "Storytelling",
+          "Initiative"
+        ]
+      },
+      "certifications": [
+        "Tableau Desktop Specialist",
+        "Google Data Analytics Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Vikram Nair",
+      "current_role": "Cybersecurity Analyst",
+      "years_experience": 6,
+      "email": "vikram.nair@gmail.com",
+      "phone": "+6012-4839271",
+      "location": "Kuala Lumpur",
+      "summary": "Cybersecurity analyst specializing in threat intelligence and incident response for banking sector. Managed security operations center handling 1000+ alerts daily at RHB. CISSP and CEH certified professional.",
+      "education": [
+        {
+          "degree": "Bachelor of Information Security",
+          "field": "Cybersecurity",
+          "institution": "Asia Pacific University (APU)",
+          "year": 2018,
+          "cgpa": "3.55/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Cybersecurity Analyst",
+          "company": "RHBX",
+          "duration": "Jun 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Led SOC team monitoring 500+ network devices and endpoints 24/7",
+            "Responded to 50+ security incidents annually including ransomware and phishing attacks",
+            "Implemented SIEM solution reducing mean time to detect threats from 72hrs to 4hrs"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "SIEM",
+          "Penetration Testing",
+          "Network Security",
+          "Python",
+          "Forensics"
+        ],
+        "tools": [
+          "Splunk",
+          "CrowdStrike",
+          "Nessus",
+          "Wireshark",
+          "Metasploit"
+        ],
+        "soft_skills": [
+          "Analytical Thinking",
+          "Calmness Under Pressure",
+          "Documentation"
+        ]
+      },
+      "certifications": [
+        "CISSP",
+        "Certified Ethical Hacker (CEH)",
+        "CompTIA Security+"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Fatin Husna binti Zakaria",
+      "current_role": "Frontend Developer",
+      "years_experience": 3,
+      "email": "fatin.husna@gmail.com",
+      "phone": "+6011-3847261",
+      "location": "Johor Bahru",
+      "summary": "Creative frontend developer building beautiful and performant web applications. Passionate about accessibility and modern CSS. Contributed to open source UI libraries and active in the JB developer community.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Web Technology",
+          "institution": "Universiti Tun Hussein Onn Malaysia (UTHM)",
+          "year": 2021,
+          "cgpa": "3.48/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Frontend Developer",
+          "company": "Vsolution",
+          "duration": "Jul 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Built responsive React applications for 10+ enterprise clients in Johor",
+            "Improved Core Web Vitals scores from 40 to 92 through performance optimization",
+            "Implemented WCAG 2.1 accessibility standards across all client projects"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "React",
+          "Vue.js",
+          "TypeScript",
+          "CSS",
+          "HTML"
+        ],
+        "tools": [
+          "Webpack",
+          "Vite",
+          "Storybook",
+          "Figma",
+          "Git"
+        ],
+        "soft_skills": [
+          "Creativity",
+          "Attention to Detail",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "Meta Frontend Developer Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Zi Yang Ng",
+      "current_role": "Android Developer",
+      "years_experience": 5,
+      "email": "ziyang.ng@gmail.com",
+      "phone": "+6016-8374921",
+      "location": "Penang",
+      "summary": "Android developer with 5 years building consumer apps with millions of downloads on Play Store. Expert in Kotlin, Jetpack Compose and Clean Architecture. Delivered AirAsia and GoGet mobile apps.",
+      "education": [
+        {
+          "degree": "Bachelor of Software Engineering",
+          "field": "Mobile Computing",
+          "institution": "Universiti Sains Malaysia (USM)",
+          "year": 2019,
+          "cgpa": "3.60/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Android Developer",
+          "company": "AirAsia",
+          "duration": "Aug 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Developed AirAsia Super App features in Kotlin with Jetpack Compose used by 15M+ users",
+            "Reduced app crash rate from 2.1% to 0.3% through systematic debugging and testing",
+            "Implemented offline-first architecture using Room database and WorkManager"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Kotlin",
+          "Java",
+          "Jetpack Compose",
+          "Android SDK",
+          "SQLite"
+        ],
+        "tools": [
+          "Android Studio",
+          "Firebase",
+          "Retrofit",
+          "Git",
+          "CI/CD"
+        ],
+        "soft_skills": [
+          "Quality Focus",
+          "Problem Solving",
+          "Collaboration"
+        ]
+      },
+      "certifications": [
+        "Associate Android Developer (Google)"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Deepa Menon",
+      "current_role": "Scrum Master",
+      "years_experience": 8,
+      "email": "deepa.menon@gmail.com",
+      "phone": "+6014-7293841",
+      "location": "Kuala Lumpur",
+      "summary": "Certified Scrum Master with 8 years facilitating agile transformations across fintech and telco sectors. Coached 10+ product teams and improved sprint velocity by 35% at Axiata. Strong servant leadership skills.",
+      "education": [
+        {
+          "degree": "Bachelor of Business Information Systems",
+          "field": "Project Management",
+          "institution": "HELP University",
+          "year": 2016,
+          "cgpa": "3.72/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Scrum Master",
+          "company": "Axiata Group",
+          "duration": "Jan 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Facilitated agile ceremonies for 3 cross-functional squads of 8-12 members each",
+            "Coached teams on agile practices improving sprint predictability from 62% to 89%",
+            "Removed organizational impediments enabling teams to deliver 40% more story points"
+          ]
+        },
+        {
+          "title": "Project Coordinator",
+          "company": "Telekom Malaysia",
+          "duration": "Jul 2016 - Dec 2017",
+          "years": 2,
+          "responsibilities": [
+            "Coordinated delivery of network infrastructure projects worth RM50M+",
+            "Tracked project milestones and risks using MS Project and JIRA"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Scrum",
+          "Kanban",
+          "SAFe",
+          "JIRA",
+          "Confluence"
+        ],
+        "tools": [
+          "Miro",
+          "Retrium",
+          "Slack",
+          "Teams",
+          "Notion"
+        ],
+        "soft_skills": [
+          "Servant Leadership",
+          "Facilitation",
+          "Conflict Resolution"
+        ]
+      },
+      "certifications": [
+        "Certified ScrumMaster (CSM)",
+        "SAFe 5 Scrum Master",
+        "PMI-ACP"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Jian Ming Lee",
+      "current_role": "Database Administrator",
+      "years_experience": 9,
+      "email": "jianming.lee@gmail.com",
+      "phone": "+6012-9384721",
+      "location": "Kuala Lumpur",
+      "summary": "Senior DBA with 9 years managing critical databases for banking and insurance sectors. Expert in PostgreSQL, Oracle and MSSQL with focus on performance tuning and high availability. Zero unplanned downtime in 5 years at Hong Leong Bank.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Database Systems",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2015,
+          "cgpa": "3.45/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Database Administrator",
+          "company": "Hong Leong Bank",
+          "duration": "Mar 2016 - Present",
+          "years": 8,
+          "responsibilities": [
+            "Managed 200+ Oracle and PostgreSQL databases with 99.999% uptime SLA",
+            "Optimized 500+ slow queries reducing database load by 60%",
+            "Designed and implemented disaster recovery strategy with 15-minute RTO"
+          ]
+        },
+        {
+          "title": "Junior DBA",
+          "company": "AmBank Group",
+          "duration": "Jul 2015 - Feb 2016",
+          "years": 1,
+          "responsibilities": [
+            "Performed daily database health checks and backups",
+            "Assisted senior DBAs in performance tuning and patch management"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Oracle",
+          "PostgreSQL",
+          "MSSQL",
+          "MySQL",
+          "PL/SQL"
+        ],
+        "tools": [
+          "OEM",
+          "pgAdmin",
+          "RMAN",
+          "DataGuard",
+          "AWR"
+        ],
+        "soft_skills": [
+          "Reliability",
+          "Precision",
+          "On-call Readiness"
+        ]
+      },
+      "certifications": [
+        "Oracle Database Administrator Certified Professional",
+        "Microsoft Certified Database Administrator"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Syafiq Danial bin Hamdan",
+      "current_role": "iOS Developer",
+      "years_experience": 4,
+      "email": "syafiq.danial@gmail.com",
+      "phone": "+6018-3847291",
+      "location": "Subang Jaya",
+      "summary": "iOS developer crafting smooth and delightful mobile experiences. Built consumer-facing apps with 1M+ downloads using Swift and SwiftUI. Passionate about performance and Apple Human Interface Guidelines.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Software Engineering",
+          "institution": "Multimedia University (MMU)",
+          "year": 2020,
+          "cgpa": "3.52/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "iOS Developer",
+          "company": "GoGet",
+          "duration": "Sep 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built GoGet runner and customer iOS apps in Swift with SwiftUI used by 500K+ users",
+            "Integrated Apple Pay and FPX payment reducing checkout friction by 25%",
+            "Implemented push notifications and background sync improving user retention by 18%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Swift",
+          "SwiftUI",
+          "UIKit",
+          "Core Data",
+          "Objective-C"
+        ],
+        "tools": [
+          "Xcode",
+          "Firebase",
+          "TestFlight",
+          "Instruments",
+          "Git"
+        ],
+        "soft_skills": [
+          "Attention to Detail",
+          "Creativity",
+          "User Empathy"
+        ]
+      },
+      "certifications": [
+        "Apple Developer Program Member"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Anitha Krishnan",
+      "current_role": "HR Manager",
+      "years_experience": 10,
+      "email": "anitha.krishnan@gmail.com",
+      "phone": "+6019-7382941",
+      "location": "Kuala Lumpur",
+      "summary": "Strategic HR manager with 10 years driving talent acquisition and organizational development in tech companies. Built talent pipelines at Grab and Shopee Malaysia. Expert in employer branding and performance management.",
+      "education": [
+        {
+          "degree": "Bachelor of Human Resource Management",
+          "field": "Organizational Psychology",
+          "institution": "Universiti Putra Malaysia (UPM)",
+          "year": 2014,
+          "cgpa": "3.68/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "HR Manager",
+          "company": "Shopee Malaysia",
+          "duration": "Feb 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Led talent acquisition hiring 200+ tech and operations roles annually",
+            "Designed performance management framework aligned with company OKRs",
+            "Reduced employee turnover from 28% to 14% through engagement programs"
+          ]
+        },
+        {
+          "title": "HR Executive",
+          "company": "Grab Malaysia",
+          "duration": "Jul 2014 - Jan 2018",
+          "years": 4,
+          "responsibilities": [
+            "Managed end-to-end recruitment for tech and operations roles",
+            "Coordinated onboarding programs for 100+ new hires quarterly"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Talent Acquisition",
+          "Performance Management",
+          "HR Analytics",
+          "Compensation",
+          "L&D"
+        ],
+        "tools": [
+          "Workday",
+          "LinkedIn Recruiter",
+          "Taleo",
+          "BambooHR",
+          "Excel"
+        ],
+        "soft_skills": [
+          "Empathy",
+          "Persuasion",
+          "Discretion"
+        ]
+      },
+      "certifications": [
+        "SHRM Certified Professional (SHRM-CP)",
+        "HRDF Certified Trainer"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Yong Kang Chin",
+      "current_role": "QA Engineer",
+      "years_experience": 5,
+      "email": "yongkang.chin@gmail.com",
+      "phone": "+6016-4839271",
+      "location": "Penang",
+      "summary": "QA engineer passionate about delivering bug-free software through automation. Built test automation frameworks from scratch at Intel Malaysia and Dell Technologies. Expert in Selenium, Cypress and API testing.",
+      "education": [
+        {
+          "degree": "Bachelor of Software Engineering",
+          "field": "Quality Assurance",
+          "institution": "Universiti Sains Malaysia (USM)",
+          "year": 2019,
+          "cgpa": "3.42/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior QA Engineer",
+          "company": "Intel Malaysia",
+          "duration": "Jun 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Built Selenium and Cypress test automation framework with 3000+ test cases",
+            "Reduced regression testing cycle from 2 weeks to 3 days through automation",
+            "Implemented API testing using Postman and RestAssured covering 95% of endpoints"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Selenium",
+          "Cypress",
+          "Java",
+          "Python",
+          "API Testing"
+        ],
+        "tools": [
+          "JIRA",
+          "Postman",
+          "TestRail",
+          "Jenkins",
+          "Git"
+        ],
+        "soft_skills": [
+          "Thoroughness",
+          "Critical Thinking",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "ISTQB Certified Tester",
+        "Cypress Certified"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Nurul Izzati binti Othman",
+      "current_role": "Digital Marketing Manager",
+      "years_experience": 6,
+      "email": "nurul.izzati@gmail.com",
+      "phone": "+6013-8472931",
+      "location": "Kuala Lumpur",
+      "summary": "Results-driven digital marketing manager with 6 years growing brands through data-driven campaigns. Managed RM5M+ annual ad spend at AirAsia achieving 300% ROAS. Expert in SEO, SEM, and social media marketing.",
+      "education": [
+        {
+          "degree": "Bachelor of Marketing",
+          "field": "Digital Marketing",
+          "institution": "Taylor's University",
+          "year": 2018,
+          "cgpa": "3.58/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Digital Marketing Manager",
+          "company": "AirAsia",
+          "duration": "Mar 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Managed RM5M+ annual Google and Meta ad spend with 300% average ROAS",
+            "Grew organic search traffic by 150% through technical SEO and content strategy",
+            "Led team of 4 digital marketers across SEO, SEM, social and email channels"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "SEO",
+          "SEM",
+          "Google Ads",
+          "Meta Ads",
+          "Email Marketing"
+        ],
+        "tools": [
+          "Google Analytics",
+          "SEMrush",
+          "HubSpot",
+          "Mailchimp",
+          "Hootsuite"
+        ],
+        "soft_skills": [
+          "Creativity",
+          "Data Literacy",
+          "Leadership"
+        ]
+      },
+      "certifications": [
+        "Google Ads Certified",
+        "HubSpot Marketing Certified",
+        "Meta Blueprint Certified"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Karthik Rajan",
+      "current_role": "Site Reliability Engineer",
+      "years_experience": 7,
+      "email": "karthik.rajan@gmail.com",
+      "phone": "+6012-7382941",
+      "location": "Cyberjaya",
+      "summary": "SRE with 7 years maintaining reliability and performance of distributed systems serving millions of users. Built observability platforms and automated incident response at Grab Malaysia. Expert in SLOs, error budgets and chaos engineering.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Engineering",
+          "field": "Systems Engineering",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2017,
+          "cgpa": "3.62/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Site Reliability Engineer",
+          "company": "Grab Malaysia",
+          "duration": "May 2017 - Present",
+          "years": 7,
+          "responsibilities": [
+            "Maintained 99.99% uptime for Grab's payment and mapping services",
+            "Built observability platform using Prometheus, Grafana and Jaeger processing 10M+ metrics/min",
+            "Implemented chaos engineering practice reducing incident frequency by 40%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Go",
+          "Kubernetes",
+          "Prometheus",
+          "Linux"
+        ],
+        "tools": [
+          "Grafana",
+          "Jaeger",
+          "PagerDuty",
+          "Terraform",
+          "AWS"
+        ],
+        "soft_skills": [
+          "Systems Thinking",
+          "Calmness Under Pressure",
+          "Blameless Culture"
+        ]
+      },
+      "certifications": [
+        "AWS DevOps Engineer Professional",
+        "Certified Kubernetes Administrator (CKA)"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Anis Syafiqah binti Rashid",
+      "current_role": "Finance Analyst",
+      "years_experience": 5,
+      "email": "anis.syafiqah@gmail.com",
+      "phone": "+6011-7293841",
+      "location": "Kuala Lumpur",
+      "summary": "Finance analyst with 5 years in fintech and banking, specializing in financial modeling and investment analysis. Built DCF models for RM200M+ deals at Funding Societies. CFA Level 2 candidate.",
+      "education": [
+        {
+          "degree": "Bachelor of Accounting",
+          "field": "Finance",
+          "institution": "Universiti Kebangsaan Malaysia (UKM)",
+          "year": 2019,
+          "cgpa": "3.75/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Finance Analyst",
+          "company": "Funding Societies",
+          "duration": "Aug 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Built financial models for SME loan underwriting decisions on RM500M+ portfolio",
+            "Prepared monthly MIS reports and board packs for C-suite and investors",
+            "Analyzed portfolio risk metrics and recommended credit policy improvements"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Financial Modeling",
+          "DCF Valuation",
+          "Excel",
+          "SQL",
+          "Python"
+        ],
+        "tools": [
+          "Power BI",
+          "Bloomberg",
+          "SAP",
+          "QuickBooks",
+          "Tableau"
+        ],
+        "soft_skills": [
+          "Analytical Rigor",
+          "Attention to Detail",
+          "Integrity"
+        ]
+      },
+      "certifications": [
+        "CFA Level 2 Candidate",
+        "ACCA Affiliate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Jun Hao Lim",
+      "current_role": "Network Engineer",
+      "years_experience": 6,
+      "email": "junhao.lim@gmail.com",
+      "phone": "+6016-3948271",
+      "location": "Kuala Lumpur",
+      "summary": "Network engineer with 6 years designing and managing enterprise and telco networks. Expert in Cisco, SD-WAN and network security. Deployed 5G core network infrastructure at Telekom Malaysia.",
+      "education": [
+        {
+          "degree": "Bachelor of Electrical Engineering",
+          "field": "Telecommunications",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2018,
+          "cgpa": "3.48/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Network Engineer",
+          "company": "Telekom Malaysia",
+          "duration": "Jul 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Designed and deployed SD-WAN solution connecting 500+ enterprise branches nationwide",
+            "Configured and maintained Cisco ASR and Juniper MX routers in core network",
+            "Supported 5G core network deployment achieving 1Gbps throughput in trial sites"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Cisco IOS",
+          "SD-WAN",
+          "BGP/OSPF",
+          "Network Security",
+          "Python"
+        ],
+        "tools": [
+          "Wireshark",
+          "SolarWinds",
+          "Cisco DNA Center",
+          "GNS3",
+          "Ansible"
+        ],
+        "soft_skills": [
+          "Technical Precision",
+          "Troubleshooting",
+          "On-call Availability"
+        ]
+      },
+      "certifications": [
+        "CCNP Enterprise",
+        "CCNA Security",
+        "Juniper JNCIA"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Liyana Zulaikha binti Hassan",
+      "current_role": "Operations Manager",
+      "years_experience": 8,
+      "email": "liyana.zulaikha@gmail.com",
+      "phone": "+6019-8473921",
+      "location": "Shah Alam",
+      "summary": "Operations manager with 8 years streamlining logistics and supply chain operations for e-commerce. Reduced fulfillment costs by 30% at Shopee Malaysia through process optimization and vendor management.",
+      "education": [
+        {
+          "degree": "Bachelor of Business Administration",
+          "field": "Operations Management",
+          "institution": "Universiti Teknologi MARA (UiTM)",
+          "year": 2016,
+          "cgpa": "3.55/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Operations Manager",
+          "company": "Shopee Malaysia",
+          "duration": "Apr 2016 - Present",
+          "years": 8,
+          "responsibilities": [
+            "Managed last-mile delivery operations processing 100K+ parcels daily",
+            "Reduced average delivery time from 5 days to 2.5 days through route optimization",
+            "Led team of 50 operations staff across 3 fulfillment centers in Klang Valley"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Supply Chain Management",
+          "Process Optimization",
+          "Data Analysis",
+          "Vendor Management",
+          "Logistics"
+        ],
+        "tools": [
+          "SAP",
+          "Excel",
+          "Power BI",
+          "Tableau",
+          "Monday.com"
+        ],
+        "soft_skills": [
+          "Leadership",
+          "Decision Making",
+          "Resilience"
+        ]
+      },
+      "certifications": [
+        "APICS CSCP",
+        "Six Sigma Green Belt"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Suresh Menon",
+      "current_role": "Software Engineer",
+      "years_experience": 2,
+      "email": "suresh.menon@gmail.com",
+      "phone": "+6011-4837291",
+      "location": "Johor Bahru",
+      "summary": "Junior software engineer with 2 years experience building web applications. Recent graduate from UTM with strong fundamentals in Python and JavaScript. Eager to grow in a fast-paced environment.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Software Engineering",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2022,
+          "cgpa": "3.40/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Software Engineer",
+          "company": "Vsolution",
+          "duration": "Sep 2022 - Present",
+          "years": 2,
+          "responsibilities": [
+            "Developed internal tools and dashboards using Python and React for enterprise clients",
+            "Fixed bugs and implemented minor features in legacy PHP applications",
+            "Participated in code reviews and agile ceremonies"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "JavaScript",
+          "React",
+          "SQL",
+          "PHP"
+        ],
+        "tools": [
+          "Git",
+          "Docker",
+          "JIRA",
+          "VS Code",
+          "Postman"
+        ],
+        "soft_skills": [
+          "Willingness to Learn",
+          "Teamwork",
+          "Punctuality"
+        ]
+      },
+      "certifications": [],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Mei Sze Wong",
+      "current_role": "UX Researcher",
+      "years_experience": 4,
+      "email": "meiszelsze.wong@gmail.com",
+      "phone": "+6017-2938471",
+      "location": "Kuala Lumpur",
+      "summary": "UX researcher with 4 years uncovering user insights that drive product decisions. Conducted 500+ user interviews across Malaysia, Singapore and Indonesia for Grab and Funding Societies. Expert in mixed-methods research.",
+      "education": [
+        {
+          "degree": "Master of Science",
+          "field": "Human-Computer Interaction",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2020,
+          "cgpa": "3.78/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "UX Researcher",
+          "company": "Funding Societies",
+          "duration": "Mar 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Conducted 200+ user interviews informing product roadmap for SME lending app",
+            "Designed and analyzed surveys with 5000+ respondents across SEA markets",
+            "Built UX research repository and best practices adopted by 4 product teams"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "User Interviews",
+          "Usability Testing",
+          "Survey Design",
+          "Data Analysis",
+          "Affinity Mapping"
+        ],
+        "tools": [
+          "Dovetail",
+          "Maze",
+          "Optimal Workshop",
+          "Figma",
+          "SPSS"
+        ],
+        "soft_skills": [
+          "Empathy",
+          "Curiosity",
+          "Storytelling"
+        ]
+      },
+      "certifications": [
+        "Nielsen Norman UX Research Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Izzuddin Razif bin Mohd",
+      "current_role": "DevOps Engineer",
+      "years_experience": 3,
+      "email": "izzuddin.razif@gmail.com",
+      "phone": "+6018-4738291",
+      "location": "Cyberjaya",
+      "summary": "Junior DevOps engineer with 3 years automating deployments and managing cloud infrastructure. Passionate about GitOps and platform engineering. Building internal developer platform at CapBay.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Computer Networks",
+          "institution": "Multimedia University (MMU)",
+          "year": 2021,
+          "cgpa": "3.38/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "DevOps Engineer",
+          "company": "CapBay",
+          "duration": "Jul 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Set up and maintained CI/CD pipelines using GitHub Actions and ArgoCD",
+            "Managed AWS infrastructure using Terraform for fintech platform",
+            "Implemented container security scanning using Trivy in deployment pipeline"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Docker",
+          "Kubernetes",
+          "Terraform",
+          "AWS",
+          "Linux"
+        ],
+        "tools": [
+          "GitHub Actions",
+          "ArgoCD",
+          "Helm",
+          "Prometheus",
+          "Grafana"
+        ],
+        "soft_skills": [
+          "Continuous Learning",
+          "Reliability",
+          "Collaboration"
+        ]
+      },
+      "certifications": [
+        "AWS Solutions Architect Associate",
+        "HashiCorp Terraform Associate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Jia Ying Ng",
+      "current_role": "Data Scientist",
+      "years_experience": 6,
+      "email": "jiaying.ng@gmail.com",
+      "phone": "+6013-9283741",
+      "location": "Petaling Jaya",
+      "summary": "Data scientist with 6 years applying machine learning to financial services and e-commerce. Built credit scoring models used for RM1B+ loan decisions at CIMB. Expert in feature engineering and model interpretability.",
+      "education": [
+        {
+          "degree": "Master of Science",
+          "field": "Applied Statistics",
+          "institution": "Universiti Putra Malaysia (UPM)",
+          "year": 2018,
+          "cgpa": "3.82/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Data Scientist",
+          "company": "CIMB Group",
+          "duration": "Apr 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Built credit scoring model improving loan approval accuracy by 28% using XGBoost",
+            "Developed customer segmentation model identifying RM200M+ cross-sell opportunities",
+            "Led MLOps initiative standardizing model deployment reducing release time from 3 weeks to 2 days"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "R",
+          "SQL",
+          "XGBoost",
+          "Statistics"
+        ],
+        "tools": [
+          "SageMaker",
+          "MLflow",
+          "Databricks",
+          "Tableau",
+          "Jupyter"
+        ],
+        "soft_skills": [
+          "Statistical Rigor",
+          "Business Acumen",
+          "Presentation"
+        ]
+      },
+      "certifications": [
+        "AWS Machine Learning Specialty",
+        "Databricks Certified ML Professional"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Hana Sofea binti Zain",
+      "current_role": "UI Designer",
+      "years_experience": 3,
+      "email": "hana.sofea@gmail.com",
+      "phone": "+6011-8473921",
+      "location": "Subang Jaya",
+      "summary": "Creative UI designer with 3 years crafting visually stunning interfaces for mobile and web. Strong motion design skills and experience building design systems. Portfolio includes award-winning app designs for GoGet and StoreHub.",
+      "education": [
+        {
+          "degree": "Bachelor of Visual Communication",
+          "field": "Digital Design",
+          "institution": "Taylor's University",
+          "year": 2021,
+          "cgpa": "3.65/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "UI Designer",
+          "company": "GoGet",
+          "duration": "Aug 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Designed UI for GoGet runner and customer apps with 4.8/5 App Store rating",
+            "Built and maintained GoGet design system with 200+ reusable components in Figma",
+            "Created motion design animations improving onboarding completion rate by 22%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Figma",
+          "Adobe Illustrator",
+          "After Effects",
+          "Principle",
+          "Prototyping"
+        ],
+        "tools": [
+          "Zeplin",
+          "Abstract",
+          "Lottie",
+          "Notion",
+          "Slack"
+        ],
+        "soft_skills": [
+          "Creativity",
+          "Aesthetics",
+          "Attention to Detail"
+        ]
+      },
+      "certifications": [
+        "Google UX Design Certificate",
+        "Adobe Certified Professional"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Zhi Wei Ong",
+      "current_role": "Senior Software Engineer",
+      "years_experience": 8,
+      "email": "zhiwei.ong@gmail.com",
+      "phone": "+6016-7483921",
+      "location": "Kuala Lumpur",
+      "summary": "Seasoned software engineer with 8 years building enterprise software for banking and telco. Led backend teams at Maybank and Microsoft Malaysia. Expert in distributed systems, event-driven architecture and API design.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Software Engineering",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2016,
+          "cgpa": "3.70/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Microsoft Malaysia",
+          "duration": "Jan 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Led team of 6 building Azure-based enterprise integration platform for Malaysian banks",
+            "Designed event-driven architecture using Azure Service Bus handling 5M events/day",
+            "Mentored 4 junior engineers and established engineering best practices for the team"
+          ]
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Maybank",
+          "duration": "Jul 2016 - Dec 2018",
+          "years": 3,
+          "responsibilities": [
+            "Built core banking APIs in Java Spring Boot serving 10M+ customers",
+            "Implemented API gateway and rate limiting reducing unauthorized access by 99%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "C#",
+          "Java",
+          "Python",
+          "Azure",
+          "Microservices"
+        ],
+        "tools": [
+          "Azure Service Bus",
+          "Docker",
+          "Kubernetes",
+          "Git",
+          "JIRA"
+        ],
+        "soft_skills": [
+          "Technical Leadership",
+          "Mentoring",
+          "Architecture Thinking"
+        ]
+      },
+      "certifications": [
+        "Microsoft Azure Solutions Architect Expert",
+        "AWS Solutions Architect Professional"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Dinesh Kumar",
+      "current_role": "Machine Learning Engineer",
+      "years_experience": 4,
+      "email": "dinesh.kumar@gmail.com",
+      "phone": "+6012-3847192",
+      "location": "Kuala Lumpur",
+      "summary": "ML engineer building computer vision and NLP solutions for real-world industrial applications. Deployed models at Petronas Digital for predictive maintenance and at PolicyStreet for document processing.",
+      "education": [
+        {
+          "degree": "Bachelor of Artificial Intelligence",
+          "field": "Computer Vision",
+          "institution": "Asia Pacific University (APU)",
+          "year": 2020,
+          "cgpa": "3.62/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Machine Learning Engineer",
+          "company": "Petronas Digital",
+          "duration": "Sep 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built computer vision model for pipeline defect detection achieving 96% accuracy",
+            "Deployed NLP document extraction pipeline processing 10K+ documents monthly",
+            "Reduced model inference latency from 3s to 200ms through TensorRT optimization"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "PyTorch",
+          "Computer Vision",
+          "NLP",
+          "FastAPI"
+        ],
+        "tools": [
+          "TensorRT",
+          "ONNX",
+          "MLflow",
+          "Docker",
+          "AWS"
+        ],
+        "soft_skills": [
+          "Research Mindset",
+          "Innovation",
+          "Thoroughness"
+        ]
+      },
+      "certifications": [
+        "NVIDIA Deep Learning Institute Certificate",
+        "AWS Machine Learning Specialty"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Shu Qi Lee",
+      "current_role": "Product Manager",
+      "years_experience": 5,
+      "email": "shuqi.lee@gmail.com",
+      "phone": "+6017-8392741",
+      "location": "Petaling Jaya",
+      "summary": "Product manager driving growth for fintech products in Malaysia. Launched CapBay's invoice financing platform from 0 to RM100M GMV in 18 months. Data-driven and customer-obsessed.",
+      "education": [
+        {
+          "degree": "Bachelor of Engineering",
+          "field": "Electrical and Electronics",
+          "institution": "Universiti Malaya (UM)",
+          "year": 2019,
+          "cgpa": "3.55/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Product Manager",
+          "company": "CapBay",
+          "duration": "Jun 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Launched invoice financing product growing to RM100M GMV in 18 months",
+            "Defined product vision and roadmap based on 100+ customer interviews",
+            "Collaborated with engineering team of 8 in 2-week agile sprints"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Product Strategy",
+          "SQL",
+          "Data Analytics",
+          "A/B Testing",
+          "Wireframing"
+        ],
+        "tools": [
+          "JIRA",
+          "Figma",
+          "Amplitude",
+          "Mixpanel",
+          "Confluence"
+        ],
+        "soft_skills": [
+          "Customer Empathy",
+          "Data-Driven Decision Making",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "Certified Product Manager (CPM)",
+        "CSPO"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Hafizuddin Malik bin Yusof",
+      "current_role": "Backend Developer",
+      "years_experience": 5,
+      "email": "hafizuddin.malik@gmail.com",
+      "phone": "+6014-7382941",
+      "location": "Kuala Lumpur",
+      "summary": "Backend developer specializing in Go and Python for high-throughput financial systems. Built payment APIs at Revenue Monster and CapBay handling millions of transactions. Loves writing clean, testable code.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Information Security",
+          "institution": "Universiti Kebangsaan Malaysia (UKM)",
+          "year": 2019,
+          "cgpa": "3.58/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Backend Developer",
+          "company": "CapBay",
+          "duration": "Aug 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Built Go microservices for invoice financing platform processing RM100M+ transactions",
+            "Implemented idempotent payment APIs reducing duplicate transactions to zero",
+            "Achieved 98% test coverage through TDD and comprehensive integration tests"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Go",
+          "Python",
+          "PostgreSQL",
+          "Redis",
+          "gRPC"
+        ],
+        "tools": [
+          "Docker",
+          "Kubernetes",
+          "GitHub Actions",
+          "Prometheus",
+          "Postman"
+        ],
+        "soft_skills": [
+          "Code Quality Focus",
+          "Reliability",
+          "Self-Motivation"
+        ]
+      },
+      "certifications": [
+        "AWS Certified Developer",
+        "Go Programming Language Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Pei Shan Chin",
+      "current_role": "Data Engineer",
+      "years_experience": 4,
+      "email": "peishan.chin@gmail.com",
+      "phone": "+6016-2938471",
+      "location": "Kuala Lumpur",
+      "summary": "Data engineer building modern data platforms for retail analytics. Migrated Lazada Malaysia's data warehouse to cloud reducing query time by 80%. Expert in dbt, Airflow and Spark.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Big Data",
+          "institution": "Multimedia University (MMU)",
+          "year": 2020,
+          "cgpa": "3.60/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Data Engineer",
+          "company": "Lazada Malaysia",
+          "duration": "Sep 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Migrated on-premise data warehouse to AWS Redshift reducing query time by 80%",
+            "Built dbt models standardizing 50+ data marts used by 300+ analysts",
+            "Implemented real-time streaming pipeline using Kafka and Spark Streaming"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "dbt",
+          "SQL",
+          "Apache Spark",
+          "Kafka"
+        ],
+        "tools": [
+          "Airflow",
+          "AWS Redshift",
+          "Databricks",
+          "Tableau",
+          "Git"
+        ],
+        "soft_skills": [
+          "Data Quality Mindset",
+          "Collaboration",
+          "Documentation"
+        ]
+      },
+      "certifications": [
+        "AWS Data Analytics Specialty",
+        "dbt Developer Certification"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Praveen Raj",
+      "current_role": "Cloud Engineer",
+      "years_experience": 4,
+      "email": "praveen.raj@gmail.com",
+      "phone": "+6011-3847192",
+      "location": "Cyberjaya",
+      "summary": "Cloud engineer with expertise in multi-cloud architecture and infrastructure automation. Built cloud-native platforms for fintech startups. Certified in AWS, Azure and GCP — a true multi-cloud practitioner.",
+      "education": [
+        {
+          "degree": "Bachelor of Information Technology",
+          "field": "Cloud Computing",
+          "institution": "Asia Pacific University (APU)",
+          "year": 2020,
+          "cgpa": "3.52/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Cloud Engineer",
+          "company": "Accenture Malaysia",
+          "duration": "Jul 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Designed multi-cloud architecture for 5 Malaysian fintech clients on AWS and Azure",
+            "Automated infrastructure provisioning using Terraform and Pulumi across 3 cloud providers",
+            "Implemented FinOps practices saving clients RM2M+ annually in cloud costs"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "AWS",
+          "Azure",
+          "GCP",
+          "Terraform",
+          "Kubernetes"
+        ],
+        "tools": [
+          "Pulumi",
+          "CloudFormation",
+          "Ansible",
+          "Datadog",
+          "GitHub Actions"
+        ],
+        "soft_skills": [
+          "Multi-cloud Thinking",
+          "Client Management",
+          "Cost Optimization"
+        ]
+      },
+      "certifications": [
+        "AWS Solutions Architect Professional",
+        "Azure Solutions Architect Expert",
+        "Google Cloud Professional"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Izzati Balqis binti Nordin",
+      "current_role": "QA Engineer",
+      "years_experience": 4,
+      "email": "izzati.balqis@gmail.com",
+      "phone": "+6018-7382941",
+      "location": "Penang",
+      "summary": "QA engineer ensuring software quality through comprehensive test strategies. Built mobile and API test automation frameworks at Dell Technologies. ISTQB certified with expertise in performance testing.",
+      "education": [
+        {
+          "degree": "Bachelor of Software Engineering",
+          "field": "Quality Engineering",
+          "institution": "Universiti Sains Malaysia (USM)",
+          "year": 2020,
+          "cgpa": "3.45/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "QA Engineer",
+          "company": "Dell Technologies Malaysia",
+          "duration": "Aug 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built Appium mobile test automation framework covering 2000+ test scenarios",
+            "Performed load testing using JMeter identifying bottlenecks before production release",
+            "Reduced escape defect rate by 65% through shift-left testing practices"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Selenium",
+          "Appium",
+          "JMeter",
+          "Python",
+          "API Testing"
+        ],
+        "tools": [
+          "JIRA",
+          "TestRail",
+          "Postman",
+          "Jenkins",
+          "BrowserStack"
+        ],
+        "soft_skills": [
+          "Quality Mindset",
+          "Thoroughness",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "ISTQB Certified Tester Foundation",
+        "Appium Mobile Testing Certified"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Hao Yang Chew",
+      "current_role": "Full Stack Developer",
+      "years_experience": 6,
+      "email": "haoyang.chew@gmail.com",
+      "phone": "+6013-4837291",
+      "location": "Kuala Lumpur",
+      "summary": "Full stack developer building SaaS products for Malaysian SMEs. Co-founded a side project with 2000+ users. Expert in React, Django and PostgreSQL with a product mindset beyond just coding.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Software Engineering",
+          "institution": "Sunway University",
+          "year": 2018,
+          "cgpa": "3.62/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Full Stack Developer",
+          "company": "StoreHub",
+          "duration": "Jun 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Built StoreHub analytics dashboard using React and Django used by 8000+ merchants",
+            "Designed and implemented multi-tenant SaaS architecture supporting 5 countries",
+            "Led migration from monolith to microservices reducing deployment time by 70%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "React",
+          "Django",
+          "Python",
+          "PostgreSQL",
+          "TypeScript"
+        ],
+        "tools": [
+          "Docker",
+          "AWS",
+          "Redis",
+          "Celery",
+          "Git"
+        ],
+        "soft_skills": [
+          "Product Thinking",
+          "Ownership",
+          "Mentoring"
+        ]
+      },
+      "certifications": [
+        "AWS Certified Developer",
+        "Django REST Framework Expert"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Azrul Nizam bin Wahab",
+      "current_role": "Cybersecurity Analyst",
+      "years_experience": 4,
+      "email": "azrul.nizam@gmail.com",
+      "phone": "+6012-8473921",
+      "location": "Kuala Lumpur",
+      "summary": "Cybersecurity analyst specializing in penetration testing and vulnerability assessments for banking clients. Discovered and responsibly disclosed critical vulnerabilities in major Malaysian financial institutions.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Cybersecurity",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2020,
+          "cgpa": "3.50/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Cybersecurity Analyst",
+          "company": "Accenture Malaysia",
+          "duration": "Sep 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Conducted 20+ penetration tests for Malaysian banks and government agencies annually",
+            "Discovered 150+ vulnerabilities including 3 critical CVEs in client systems",
+            "Delivered security awareness training to 5000+ employees across client organizations"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Penetration Testing",
+          "Vulnerability Assessment",
+          "Python",
+          "Network Security",
+          "OWASP"
+        ],
+        "tools": [
+          "Metasploit",
+          "Burp Suite",
+          "Nmap",
+          "Wireshark",
+          "Kali Linux"
+        ],
+        "soft_skills": [
+          "Ethical Mindset",
+          "Report Writing",
+          "Discretion"
+        ]
+      },
+      "certifications": [
+        "Offensive Security Certified Professional (OSCP)",
+        "CEH",
+        "CompTIA Security+"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Li Xin Ong",
+      "current_role": "Business Analyst",
+      "years_experience": 4,
+      "email": "lixin.ong@gmail.com",
+      "phone": "+6017-3847291",
+      "location": "Kuala Lumpur",
+      "summary": "Business analyst with 4 years in digital transformation for insurance and banking. Expert in process mapping, requirements elicitation and data-driven decision making. Delivered RM30M digital projects at PolicyStreet.",
+      "education": [
+        {
+          "degree": "Bachelor of Business Information Systems",
+          "field": "Systems Analysis",
+          "institution": "UCSI University",
+          "year": 2020,
+          "cgpa": "3.58/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Business Analyst",
+          "company": "PolicyStreet",
+          "duration": "Aug 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Gathered and documented requirements for insurance platform serving 200K+ policyholders",
+            "Mapped 30+ business processes identifying automation opportunities saving RM2M annually",
+            "Facilitated sprint planning and backlog grooming sessions for 3 product teams"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Requirements Analysis",
+          "Process Mapping",
+          "SQL",
+          "Data Analysis",
+          "BPMN"
+        ],
+        "tools": [
+          "JIRA",
+          "Confluence",
+          "Visio",
+          "Power BI",
+          "Excel"
+        ],
+        "soft_skills": [
+          "Analytical Thinking",
+          "Communication",
+          "Adaptability"
+        ]
+      },
+      "certifications": [
+        "IIBA ECBA",
+        "Microsoft Power BI Certified"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Harish Pillai",
+      "current_role": "Data Analyst",
+      "years_experience": 4,
+      "email": "harish.pillai@gmail.com",
+      "phone": "+6014-8372941",
+      "location": "Petaling Jaya",
+      "summary": "Data analyst delivering actionable insights for retail banking at RHB. Built automated reporting systems saving 40 hours of manual work weekly. Passionate about data visualization and self-service analytics.",
+      "education": [
+        {
+          "degree": "Bachelor of Statistics",
+          "field": "Applied Statistics",
+          "institution": "Universiti Putra Malaysia (UPM)",
+          "year": 2020,
+          "cgpa": "3.55/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Data Analyst",
+          "company": "RHBX",
+          "duration": "Sep 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built Power BI dashboards for retail banking KPIs used by 200+ branch managers",
+            "Automated monthly regulatory reporting using Python saving 40 person-hours weekly",
+            "Conducted campaign analysis measuring effectiveness of RM50M+ marketing spend"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "SQL",
+          "R",
+          "Statistics",
+          "Excel"
+        ],
+        "tools": [
+          "Power BI",
+          "Tableau",
+          "SSRS",
+          "Jupyter",
+          "Git"
+        ],
+        "soft_skills": [
+          "Storytelling with Data",
+          "Reliability",
+          "Proactiveness"
+        ]
+      },
+      "certifications": [
+        "Microsoft Power BI Data Analyst Associate",
+        "Google Data Analytics Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Farah Wahida binti Abdullah",
+      "current_role": "Scrum Master",
+      "years_experience": 5,
+      "email": "farah.wahida@gmail.com",
+      "phone": "+6018-2938471",
+      "location": "Shah Alam",
+      "summary": "Certified Scrum Master and agile coach with 5 years helping teams deliver value faster. Passionate about psychological safety and continuous improvement. Facilitated agile transformation at Petronas Digital.",
+      "education": [
+        {
+          "degree": "Bachelor of Business Administration",
+          "field": "Project Management",
+          "institution": "Universiti Teknologi MARA (UiTM)",
+          "year": 2019,
+          "cgpa": "3.62/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Scrum Master",
+          "company": "Petronas Digital",
+          "duration": "Jun 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Facilitated agile ceremonies for 4 digital squads delivering oil & gas analytics platforms",
+            "Coached teams through agile transformation improving deployment frequency by 300%",
+            "Implemented team health checks and retrospective techniques reducing team friction"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Scrum",
+          "Kanban",
+          "SAFe",
+          "Agile Coaching",
+          "OKRs"
+        ],
+        "tools": [
+          "JIRA",
+          "Miro",
+          "Confluence",
+          "Slack",
+          "Notion"
+        ],
+        "soft_skills": [
+          "Facilitation",
+          "Empathy",
+          "Servant Leadership"
+        ]
+      },
+      "certifications": [
+        "Certified ScrumMaster (CSM)",
+        "SAFe 5 Scrum Master",
+        "ICP-ACC"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Ming Han Yap",
+      "current_role": "Senior Software Engineer",
+      "years_experience": 6,
+      "email": "minghan.yap@gmail.com",
+      "phone": "+6016-4837291",
+      "location": "Kuala Lumpur",
+      "summary": "Senior software engineer building scalable fintech infrastructure at CapBay. Expert in event-driven systems and domain-driven design. Open source contributor to Apache Kafka and CNCF projects.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Software Engineering",
+          "institution": "Sunway University",
+          "year": 2018,
+          "cgpa": "3.72/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "CapBay",
+          "duration": "May 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Designed event-driven invoice financing platform using Kafka processing 100K+ events/day",
+            "Led backend chapter of 8 engineers establishing coding standards and review practices",
+            "Reduced system coupling through domain-driven design enabling 3x faster feature delivery"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Go",
+          "Python",
+          "Kafka",
+          "PostgreSQL",
+          "gRPC"
+        ],
+        "tools": [
+          "Kubernetes",
+          "Docker",
+          "Prometheus",
+          "GitHub Actions",
+          "Terraform"
+        ],
+        "soft_skills": [
+          "Systems Design",
+          "Technical Leadership",
+          "Open Source Contribution"
+        ]
+      },
+      "certifications": [
+        "AWS Solutions Architect Professional",
+        "CKAD"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Syahirah Nadia binti Kamaruddin",
+      "current_role": "HR Manager",
+      "years_experience": 6,
+      "email": "syahirah.nadia@gmail.com",
+      "phone": "+6013-7382941",
+      "location": "Kuala Lumpur",
+      "summary": "People-first HR manager with 6 years building high-performing teams in tech startups. Expert in employer branding, talent development and creating inclusive workplace cultures at GoGet.",
+      "education": [
+        {
+          "degree": "Bachelor of Human Resource Management",
+          "field": "Psychology",
+          "institution": "HELP University",
+          "year": 2018,
+          "cgpa": "3.65/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "HR Manager",
+          "company": "GoGet",
+          "duration": "Apr 2018 - Present",
+          "years": 6,
+          "responsibilities": [
+            "Grew headcount from 50 to 300 employees while maintaining strong culture",
+            "Designed L&D programs with RM500K annual budget improving internal promotion rate by 40%",
+            "Achieved 4.3/5 Glassdoor rating making GoGet top employer in Malaysian gig economy"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Talent Acquisition",
+          "L&D",
+          "Performance Management",
+          "HR Analytics",
+          "Employer Branding"
+        ],
+        "tools": [
+          "Workday",
+          "Greenhouse",
+          "LinkedIn Recruiter",
+          "Culture Amp",
+          "Excel"
+        ],
+        "soft_skills": [
+          "Empathy",
+          "Creativity",
+          "Strategic Thinking"
+        ]
+      },
+      "certifications": [
+        "SHRM-CP",
+        "HRDF Certified Trainer",
+        "Gallup Strengths Coach"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English"
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Wan Ting Chew",
+      "current_role": "Data Scientist",
+      "years_experience": 4,
+      "email": "wanting.chew@gmail.com",
+      "phone": "+6011-8473921",
+      "location": "Johor Bahru",
+      "summary": "Data scientist applying ML to healthcare and insurance analytics. Built patient risk stratification models at a leading Malaysian hospital group. Strong background in survival analysis and causal inference.",
+      "education": [
+        {
+          "degree": "Master of Science",
+          "field": "Data Science",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2020,
+          "cgpa": "3.80/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Data Scientist",
+          "company": "PolicyStreet",
+          "duration": "Jul 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Built patient readmission prediction model reducing readmission rate by 15%",
+            "Developed insurance risk scoring model improving underwriting accuracy by 22%",
+            "Published internal research on causal inference methods for healthcare outcomes"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "R",
+          "SQL",
+          "Survival Analysis",
+          "Causal Inference"
+        ],
+        "tools": [
+          "SageMaker",
+          "Jupyter",
+          "Tableau",
+          "SPSS",
+          "Git"
+        ],
+        "soft_skills": [
+          "Research Rigor",
+          "Healthcare Domain Knowledge",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "AWS Machine Learning Specialty",
+        "Johns Hopkins Data Science Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Sanjay Murugesh",
+      "current_role": "DevOps Engineer",
+      "years_experience": 5,
+      "email": "sanjay.murugesh@gmail.com",
+      "phone": "+6012-9473821",
+      "location": "Penang",
+      "summary": "DevOps engineer at Intel Malaysia automating semiconductor testing infrastructure. Expert in Python automation, CI/CD and hardware-in-loop testing systems. Reduced test cycle time by 55%.",
+      "education": [
+        {
+          "degree": "Bachelor of Electrical Engineering",
+          "field": "Computer Engineering",
+          "institution": "Universiti Sains Malaysia (USM)",
+          "year": 2019,
+          "cgpa": "3.48/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "DevOps Engineer",
+          "company": "Intel Malaysia",
+          "duration": "Aug 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Automated semiconductor validation test suites using Python reducing manual effort by 80%",
+            "Built CI/CD pipelines for firmware releases using GitLab CI and Docker",
+            "Managed Linux test farm of 200+ machines using Ansible configuration management"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Linux",
+          "Docker",
+          "CI/CD",
+          "Bash"
+        ],
+        "tools": [
+          "GitLab CI",
+          "Ansible",
+          "Jenkins",
+          "Grafana",
+          "Git"
+        ],
+        "soft_skills": [
+          "Automation Mindset",
+          "Problem Solving",
+          "Hardware Understanding"
+        ]
+      },
+      "certifications": [
+        "Red Hat Certified Engineer (RHCE)",
+        "GitLab Certified Associate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Kah Wai Teo",
+      "current_role": "Frontend Developer",
+      "years_experience": 5,
+      "email": "kahwai.teo@gmail.com",
+      "phone": "+6016-8374921",
+      "location": "Kuala Lumpur",
+      "summary": "Frontend developer building pixel-perfect, performant web apps for fintech. Passionate about React performance optimization and accessibility. Helped Funding Societies achieve WCAG 2.1 AA compliance.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Science",
+          "field": "Web Development",
+          "institution": "INTI International University",
+          "year": 2019,
+          "cgpa": "3.55/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Frontend Developer",
+          "company": "Funding Societies",
+          "duration": "Sep 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Built investor and borrower portals using React and TypeScript serving 50K+ users",
+            "Improved Lighthouse performance score from 45 to 95 through lazy loading and code splitting",
+            "Implemented WCAG 2.1 AA accessibility standards across all customer-facing products"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "GraphQL",
+          "CSS"
+        ],
+        "tools": [
+          "Webpack",
+          "Jest",
+          "Cypress",
+          "Figma",
+          "Git"
+        ],
+        "soft_skills": [
+          "Attention to Detail",
+          "User Empathy",
+          "Continuous Improvement"
+        ]
+      },
+      "certifications": [
+        "Meta Frontend Developer Certificate",
+        "W3C Web Accessibility Specialist"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Ravi Chandran",
+      "current_role": "Network Engineer",
+      "years_experience": 4,
+      "email": "ravi.chandran@gmail.com",
+      "phone": "+6014-7382910",
+      "location": "Kuala Lumpur",
+      "summary": "Network engineer with 4 years managing enterprise SD-WAN and cloud connectivity for financial services. Built secure network architecture for AmBank's digital banking platform migration to cloud.",
+      "education": [
+        {
+          "degree": "Bachelor of Information Technology",
+          "field": "Network Engineering",
+          "institution": "Asia Pacific University (APU)",
+          "year": 2020,
+          "cgpa": "3.45/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Network Engineer",
+          "company": "AmBank Group",
+          "duration": "Aug 2020 - Present",
+          "years": 4,
+          "responsibilities": [
+            "Designed and deployed SD-WAN connecting 120+ AmBank branches with zero-touch provisioning",
+            "Migrated on-premise network to cloud-native architecture using AWS Direct Connect",
+            "Implemented zero-trust network access reducing attack surface by 70%"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Cisco SD-WAN",
+          "AWS Networking",
+          "BGP/OSPF",
+          "Network Security",
+          "Python"
+        ],
+        "tools": [
+          "Viptela",
+          "Cisco DNA Center",
+          "AWS VPC",
+          "Zscaler",
+          "Wireshark"
+        ],
+        "soft_skills": [
+          "Technical Precision",
+          "Documentation",
+          "Problem Solving"
+        ]
+      },
+      "certifications": [
+        "CCNP Enterprise",
+        "AWS Advanced Networking Specialty"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Xue Er Teo",
+      "current_role": "Finance Analyst",
+      "years_experience": 3,
+      "email": "xueer.teo@gmail.com",
+      "phone": "+6011-8372941",
+      "location": "Kuala Lumpur",
+      "summary": "Finance analyst with 3 years in venture capital and startup finance. Performed due diligence on 30+ Malaysian tech startups and managed portfolio analytics at a leading VC firm. CFA Level 1 passed.",
+      "education": [
+        {
+          "degree": "Bachelor of Finance",
+          "field": "Corporate Finance",
+          "institution": "Sunway University",
+          "year": 2021,
+          "cgpa": "3.72/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Finance Analyst",
+          "company": "Funding Societies",
+          "duration": "Jul 2021 - Present",
+          "years": 3,
+          "responsibilities": [
+            "Performed financial due diligence on 50+ SME loan applicants quarterly",
+            "Built portfolio analytics dashboards tracking RM200M+ AUM using Power BI",
+            "Prepared investor reports and LP updates for institutional investors"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Financial Modeling",
+          "Valuation",
+          "SQL",
+          "Excel",
+          "PowerPoint"
+        ],
+        "tools": [
+          "Power BI",
+          "Bloomberg",
+          "PitchBook",
+          "QuickBooks",
+          "Tableau"
+        ],
+        "soft_skills": [
+          "Analytical Rigor",
+          "Attention to Detail",
+          "Communication"
+        ]
+      },
+      "certifications": [
+        "CFA Level 1",
+        "Bloomberg Market Concepts"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Mandarin"
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Ganesh Balaji",
+      "current_role": "Site Reliability Engineer",
+      "years_experience": 5,
+      "email": "ganesh.balaji@gmail.com",
+      "phone": "+6012-4837291",
+      "location": "Kuala Lumpur",
+      "summary": "SRE with 5 years building reliable infrastructure for e-commerce at Lazada and Shopee. Expert in incident management, capacity planning and database reliability. Reduced P0 incidents from 24 to 3 per year.",
+      "education": [
+        {
+          "degree": "Bachelor of Computer Engineering",
+          "field": "Embedded Systems",
+          "institution": "Universiti Teknologi Malaysia (UTM)",
+          "year": 2019,
+          "cgpa": "3.52/4.0"
+        }
+      ],
+      "experience": [
+        {
+          "title": "Site Reliability Engineer",
+          "company": "Shopee Malaysia",
+          "duration": "Jun 2019 - Present",
+          "years": 5,
+          "responsibilities": [
+            "Managed reliability of Shopee checkout and payment services handling 5M+ daily orders",
+            "Reduced P0 incidents from 24 to 3 per year through proactive capacity planning and chaos engineering",
+            "Built runbook automation reducing mean time to recover from 45 minutes to 8 minutes"
+          ]
+        }
+      ],
+      "skills": {
+        "technical": [
+          "Python",
+          "Go",
+          "Kubernetes",
+          "PostgreSQL",
+          "Linux"
+        ],
+        "tools": [
+          "Prometheus",
+          "Grafana",
+          "PagerDuty",
+          "Terraform",
+          "AWS"
+        ],
+        "soft_skills": [
+          "Systems Thinking",
+          "Incident Management",
+          "Calmness Under Pressure"
+        ]
+      },
+      "certifications": [
+        "AWS DevOps Engineer Professional",
+        "Google SRE Certificate"
+      ],
+      "languages": [
+        "Bahasa Malaysia",
+        "English",
+        "Tamil"
+      ]
+    }
+  ]
+}

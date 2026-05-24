@@ -1,6 +1,12 @@
 import gradio as gr
 from agent import rank_candidates
 from data_loader import prepare_candidates
+from email_agent import contact_candidate
+from email_agent import generate_email_content, send_email
+import json
+
+current_job_description = ""
+current_ranked = []
 
 def make_overlay(percent, message, done=False):
     color = "#22c55e" if done else "#6366f1"
@@ -10,7 +16,6 @@ def make_overlay(percent, message, done=False):
         <style>@keyframes spin{to{transform:rotate(360deg);}}</style>
     """
 
-    # Auto-hide after 0.5s when done
     auto_hide_style = """
         <style>
             #overlay-wrapper {
@@ -50,15 +55,15 @@ def make_cards(ranked):
     """Build responsive candidate cards HTML."""
     n = len(ranked)
 
-    # Determine columns per row
+
     if n <= 5:
-        cols = n  # all in one row
+        cols = n  
     elif n <= 10:
-        cols = 2  # two per row → fills nicely
+        cols = 2  
     elif n <= 15:
-        cols = 2  # two rows: 8+7
+        cols = 2  
     else:
-        cols = 2  # two rows: 10+10
+        cols = 2  
 
     cards_html = ""
     for i, c in enumerate(ranked):
@@ -79,7 +84,6 @@ def make_cards(ranked):
         strengths = "".join(f'<li style="margin-bottom:3px;">✅ {s}</li>' for s in c['strengths'])
         gaps = "".join(f'<li style="margin-bottom:3px;">❌ {g}</li>' for g in c['gaps'])
 
-        # Arc progress circle (SVG)
         radius = 28
         circumference = 2 * 3.14159 * radius
         dash = circumference * score / 100
@@ -160,11 +164,26 @@ def make_cards(ranked):
                 font-size:12.5px;color:#475569;font-style:italic;border-left:3px solid {badge_color};">
                 💬 {c['recommendation']}
             </div>
+
+            <!-- Contact Button -->
+            <button
+                onclick="handleContact({c['id']}, this)"
+                style="width:100%;margin-top:4px;padding:11px;
+                background:linear-gradient(90deg,#6366f1,#8b5cf6);
+                color:white;border:none;border-radius:10px;
+                font-size:13px;font-weight:600;cursor:pointer;
+                transition:opacity 0.2s;"
+                onmouseover="this.style.opacity='0.85'"
+                onmouseout="this.style.opacity='1'">
+                📧 Contact {c['name'].split()[0]}
+            </button>
+            <div id="status-{c['id']}"
+                style="font-size:12px;text-align:center;margin-top:4px;min-height:16px;">
+            </div>
         </div>
         """
         cards_html += card
-
-    # Determine grid columns CSS
+        
     if n <= 5:
         grid_cols = f"repeat({n}, 1fr)"
     else:
@@ -182,8 +201,9 @@ def make_cards(ranked):
     """
     return wrapper
 
-
 def run_recruiter(job_description, num_candidates):
+    global current_job_description, current_ranked
+
     if not job_description.strip():
         yield (gr.update(value="", visible=False), "⚠️ Please enter a job description.",
                gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True))
@@ -201,6 +221,10 @@ def run_recruiter(job_description, num_candidates):
            "", gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False))
 
     ranked = rank_candidates(job_description, candidates)
+    candidate_lookup = {candidate["id"]: candidate for candidate in candidates}
+    ranked = [{**candidate_lookup.get(item["id"], {}), **item} for item in ranked]
+    current_job_description = job_description
+    current_ranked = ranked
 
     yield (make_overlay(90, "📊 Finalizing ranked results..."),
            "", gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False))
@@ -215,20 +239,110 @@ def run_recruiter(job_description, num_candidates):
         gr.update(interactive=True),
     )
 
+def contact_candidate_fn(candidate_id):
+    global current_ranked, current_job_description
+    candidate = next((c for c in current_ranked if c["id"] == int(candidate_id)), None)
+    if not candidate:
+        return "❌ Candidate not found."
+    return contact_candidate(candidate, current_job_description)
+
+
+def preview_email_fn(candidate_id_str):
+    """Return candidate info and AI-generated draft as JSON string for the modal preview."""
+    if not candidate_id_str or not candidate_id_str.strip():
+        return ""
+    candidate = next((c for c in current_ranked if c["id"] == int(candidate_id_str)), None)
+    if not candidate:
+        return json.dumps({"error": "Candidate not found."})
+    try:
+        draft = generate_email_content(candidate, current_job_description)
+        payload = {
+            "candidate": {
+                "name": candidate.get("name"),
+                "current_role": candidate.get("current_role"),
+                "years_experience": candidate.get("years_experience"),
+                "location": candidate.get("location"),
+                "email": candidate.get("email"),
+                "phone": candidate.get("phone", ""),
+                "summary": candidate.get("summary", ""),
+                "education": candidate.get("education", []),
+                "experience": candidate.get("experience", []),
+                "skills": candidate.get("skills", {}),
+                "certifications": candidate.get("certifications", []),
+                "languages": candidate.get("languages", []),
+                "score": candidate.get("score"),
+                "strengths": candidate.get("strengths", []),
+                "gaps": candidate.get("gaps", []),
+                "recommendation": candidate.get("recommendation", "")
+            },
+            "draft": draft
+        }
+        return json.dumps(payload)
+    except Exception as e:
+        return json.dumps({"error": str(e)})
+
+
+def modal_send_fn(payload_str):
+    """Send edited email from modal. Expects JSON string: {candidate_id, subject, body}.
+    Returns a user-friendly status message (and also updates the hidden contact result textbox)."""
+    try:
+        data = json.loads(payload_str)
+        candidate_id = int(data.get("candidate_id"))
+        subject = data.get("subject", "")
+        body = data.get("body", "")
+    except Exception as e:
+        return (f"❌ Error: invalid payload ({e})", f"❌ Error: invalid payload ({e})")
+
+    candidate = next((c for c in current_ranked if c["id"] == int(candidate_id)), None)
+    if not candidate:
+        msg = f"❌ Candidate {candidate_id} not found."
+        return (msg, msg)
+
+    try:
+        success = send_email(candidate.get("email"), subject, body)
+        if success:
+            msg = f"✅ Email successfully sent to {candidate.get('name')} at {candidate.get('email')}"
+            return (msg, msg)
+        else:
+            msg = f"❌ Failed to send email to {candidate.get('name')}"
+            return (msg, msg)
+    except Exception as e:
+        msg = f"❌ Error: {str(e)}"
+        return (msg, msg)
 
 custom_css = """
-/* Center the top input section */
 #input-section {
     max-width: 720px;
     margin: 0 auto;
 }
-/* Results fill full width */
+
+#contact-input-box {
+    display: none !important;
+}
+
+
+#contact-result-box {
+    display: none !important;
+}
+
+#preview-input-box, #preview-result-box, #modal-send-input-box, #modal-send-result-box {
+    display: none !important;
+}
+
+/* Ensure modal uses the same font stack as Gradio's app theme */
+#candidate-modal-overlay,
+#candidate-modal-overlay *,
+#candidate-modal,
+#candidate-modal * {
+    font-family: var(--font, Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif) !important;
+}
+
 #results-section {
     width: 100%;
 }
 footer { display: none !important; }
 
-/* Force override Gradio's default faded text on list items */
+
 #results-section ul li,
 #results-section ul li *,
 .candidate-list-item {
@@ -238,19 +352,271 @@ footer { display: none !important; }
 }
 """
 
-with gr.Blocks(title="🤖 Intelligent Recruiter", theme=gr.themes.Soft(), css=custom_css) as demo:
+custom_js = """
+function handleContact(candidateId, btn) {
+    if (btn.disabled) {
+        return;
+    }
+
+    // Use preview flow: request AI draft, then show modal for editing & sending.
+    const previewBox = document.getElementById('preview-input-box');
+    const hiddenInput = previewBox && previewBox.querySelector('textarea, input');
+    const resultBox = document.getElementById('preview-result-box');
+    const resultField = resultBox && resultBox.querySelector('textarea, input');
+    const originalLabel = btn.dataset.originalLabel || btn.textContent;
+
+    btn.dataset.originalLabel = originalLabel;
+
+    if (!hiddenInput) {
+        console.error('Preview input box not found.');
+        return;
+    }
+
+    // Clear any previous preview result to avoid stale data
+    if (resultField) {
+        try {
+            const clearSetter = Object.getOwnPropertyDescriptor(
+                resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
+                'value'
+            ).set;
+            clearSetter.call(resultField, '');
+            resultField.dispatchEvent(new Event('input', { bubbles: true }));
+            resultField.dispatchEvent(new Event('change', { bubbles: true }));
+        } catch (e) {
+            console.warn('Could not clear preview result', e);
+        }
+    }
+
+    // Request AI draft for this candidate
+    const value = String(candidateId);
+    const valueSetter = Object.getOwnPropertyDescriptor(
+        hiddenInput.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
+        'value'
+    ).set;
+    valueSetter.call(hiddenInput, value);
+    hiddenInput.dispatchEvent(new Event('input', { bubbles: true }));
+    hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.textContent = '🔎 Preparing preview...';
+
+    let seen = false;
+    const watcher = setInterval(() => {
+        if (!resultField) return;
+        const payload = resultField.value || '';
+        if (!payload || seen) return;
+        seen = true;
+        clearInterval(watcher);
+
+        let data = null;
+        try {
+            data = JSON.parse(payload);
+        } catch (e) {
+            console.error('Invalid preview payload', e);
+            btn.textContent = originalLabel;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            return;
+        }
+
+        if (data.error) {
+            btn.textContent = '❌ Preview failed';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            return;
+        }
+
+        // Build modal DOM
+        if (document.getElementById('candidate-modal-overlay')) {
+            document.getElementById('candidate-modal-overlay').remove();
+        }
+
+        const overlay = document.createElement('div');
+        overlay.id = 'candidate-modal-overlay';
+        overlay.style = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:99999;';
+
+        const modal = document.createElement('div');
+        modal.id = 'candidate-modal';
+        modal.style = 'background:white;border-radius:12px;padding:18px 20px;max-width:760px;width:92%;max-height:80vh;overflow:auto;position:relative;';
+
+        const closeBtn = document.createElement('button');
+        closeBtn.innerText = '✖';
+        closeBtn.style = 'position:absolute;right:12px;top:10px;border:none;background:transparent;font-size:18px;cursor:pointer;';
+        closeBtn.onclick = () => { overlay.remove(); btn.textContent = originalLabel; btn.disabled = false; btn.style.opacity='1'; if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){}} };
+        modal.appendChild(closeBtn);
+
+        const title = document.createElement('div');
+        title.innerHTML = `<h3 style="margin:6px 0 8px 0;color:#111827;font-size:18px;">Contact Preview — ${data.candidate.name}</h3>`;
+        modal.appendChild(title);
+
+        // Candidate info
+        const info = document.createElement('div');
+        info.style = 'font-size:13px;color:#374151;margin-bottom:12px;';
+        const ci = data.candidate;
+
+        const makeSection = (label, items) => {
+            if (!items || !items.length) return null;
+            const section = document.createElement('div');
+            section.style = 'margin-bottom:10px;';
+            const heading = document.createElement('div');
+            heading.innerText = label;
+            heading.style = 'font-weight:700;margin-bottom:4px;color:#111827;';
+            const list = document.createElement('ul');
+            list.style = 'margin:0 0 0 16px;padding:0;';
+            items.forEach(text => {
+                const li = document.createElement('li');
+                li.style = 'margin-bottom:4px;';
+                li.innerText = text;
+                list.appendChild(li);
+            });
+            section.appendChild(heading);
+            section.appendChild(list);
+            return section;
+        };
+
+        const overviewItems = [
+            `Name: ${ci.name}`,
+            `Current role: ${ci.current_role || '-'}`,
+            `Years experience: ${ci.years_experience || '-'}`,
+            `Location: ${ci.location || '-'}`,
+            `Email: ${ci.email || '-'}`,
+            `Phone: ${ci.phone || '-'}`,
+            `Match score: ${ci.score || '-'}`,
+        ];
+        const overview = makeSection('Candidate Overview', overviewItems);
+        if (overview) info.appendChild(overview);
+
+        const skillGroups = ci.skills || {};
+        const groupedSkills = [];
+        if (skillGroups.technical && skillGroups.technical.length) groupedSkills.push(`Technical: ${skillGroups.technical.join(', ')}`);
+        if (skillGroups.tools && skillGroups.tools.length) groupedSkills.push(`Tools: ${skillGroups.tools.join(', ')}`);
+        if (skillGroups.soft_skills && skillGroups.soft_skills.length) groupedSkills.push(`Soft skills: ${skillGroups.soft_skills.join(', ')}`);
+        const skillsSection = makeSection('Skills & Tools', groupedSkills);
+        if (skillsSection) info.appendChild(skillsSection);
+
+        const certSection = makeSection('Certifications', (ci.certifications || []).map(item => item));
+        if (certSection) info.appendChild(certSection);
+
+        const langSection = makeSection('Languages', (ci.languages || []).map(item => item));
+        if (langSection) info.appendChild(langSection);
+
+        const strengthsSection = makeSection('Strengths', (ci.strengths || []).map(item => `✅ ${item}`));
+        if (strengthsSection) info.appendChild(strengthsSection);
+
+        const gapsSection = makeSection('Gaps', (ci.gaps || []).map(item => `❌ ${item}`));
+        if (gapsSection) info.appendChild(gapsSection);
+
+        if (ci.summary) {
+            const summarySection = document.createElement('div');
+            summarySection.style = 'margin-bottom:10px;';
+            summarySection.innerHTML = `<div style="font-weight:700;margin-bottom:4px;color:#111827;">Summary</div><div style="line-height:1.55;color:#374151;">${ci.summary}</div>`;
+            info.appendChild(summarySection);
+        }
+
+        modal.appendChild(info);
+
+        // Subject
+        const subjLabel = document.createElement('div');
+        subjLabel.innerText = 'Subject';
+        subjLabel.style = 'font-weight:700;margin-bottom:6px;color:#111827;';
+        modal.appendChild(subjLabel);
+        const subjArea = document.createElement('textarea');
+        subjArea.id = 'candidate-modal-subject';
+        subjArea.style = 'width:100%;min-height:40px;padding:10px;border-radius:8px;border:1px solid #e6e9ee;margin-bottom:12px;';
+        subjArea.value = data.draft.subject || '';
+        modal.appendChild(subjArea);
+
+        // Body
+        const bodyLabel = document.createElement('div');
+        bodyLabel.innerText = 'Email';
+        bodyLabel.style = 'font-weight:700;margin-bottom:6px;color:#111827;';
+        modal.appendChild(bodyLabel);
+        const bodyArea = document.createElement('textarea');
+        bodyArea.id = 'candidate-modal-body';
+        bodyArea.style = 'width:100%;min-height:160px;padding:12px;border-radius:8px;border:1px solid #e6e9ee;margin-bottom:12px;font-size:14px;line-height:1.45;';
+        bodyArea.value = data.draft.body || '';
+        modal.appendChild(bodyArea);
+
+        // Buttons
+        const footer = document.createElement('div');
+        footer.style = 'display:flex;gap:8px;justify-content:flex-end;';
+        const cancelBtn = document.createElement('button');
+        cancelBtn.innerText = 'Cancel';
+        cancelBtn.style = 'padding:10px 14px;border-radius:8px;border:1px solid #e5e7eb;background:white;cursor:pointer;';
+        cancelBtn.onclick = () => { overlay.remove(); btn.textContent = originalLabel; btn.disabled = false; btn.style.opacity='1'; if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } };
+        footer.appendChild(cancelBtn);
+
+        const sendBtn = document.createElement('button');
+        sendBtn.id = 'candidate-modal-send';
+        sendBtn.innerText = 'Send Email';
+        sendBtn.style = 'padding:10px 14px;border-radius:8px;border:none;background:linear-gradient(90deg,#6366f1,#8b5cf6);color:white;cursor:pointer;font-weight:700;';
+        footer.appendChild(sendBtn);
+        modal.appendChild(footer);
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Send handler
+        sendBtn.onclick = () => {
+            sendBtn.disabled = true;
+            sendBtn.innerText = '⏳ Sending...';
+            const sendBox = document.getElementById('modal-send-input-box');
+            const sendHidden = sendBox && sendBox.querySelector('textarea, input');
+            if (!sendHidden) {
+                console.error('Modal send box missing');
+                return;
+            }
+            const payload = JSON.stringify({ candidate_id: candidateId, subject: subjArea.value, body: bodyArea.value });
+            const vs = Object.getOwnPropertyDescriptor(
+                sendHidden.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
+                'value'
+            ).set;
+            vs.call(sendHidden, payload);
+            sendHidden.dispatchEvent(new Event('input', { bubbles: true }));
+            sendHidden.dispatchEvent(new Event('change', { bubbles: true }));
+
+            // watch for send result
+            const sendWatcher = setInterval(() => {
+                const sendResBox = document.getElementById('modal-send-result-box');
+                const sendResField = sendResBox && sendResBox.querySelector('textarea, input');
+                if (!sendResField) return;
+                const r = sendResField.value || '';
+                if (!r) return;
+                clearInterval(sendWatcher);
+                // propagate to contact-result-box so original button watcher updates
+                const contactResBox = document.getElementById('contact-result-box');
+                const contactResField = contactResBox && contactResBox.querySelector('textarea, input');
+                if (contactResField) {
+                    const s = Object.getOwnPropertyDescriptor(
+                        contactResField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
+                        'value'
+                    ).set;
+                    s.call(contactResField, r);
+                    contactResField.dispatchEvent(new Event('input', { bubbles: true }));
+                    contactResField.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+                // show brief confirmation then close
+                sendBtn.innerText = '✅ Sent';
+                setTimeout(() => { overlay.remove(); btn.textContent = '✅ Sent successfully'; btn.disabled = true; btn.style.opacity='0.7'; if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } }, 700);
+            }, 250);
+        };
+    }, 200);
+}
+"""
+
+with gr.Blocks(title="🤖 Intelligent Recruiter") as demo:
 
     gr.Markdown("""
     <div style="text-align:center;padding:24px 0 8px 0;">
         <div style="font-size:36px;margin-bottom:8px;">🤖</div>
         <h1 style="font-size:28px;font-weight:800;color:#6366f1;margin:0;">Intelligent Recruiter Agent</h1>
-        <p style="color:#64748b;margin-top:6px;font-size:15px;">Powered by Morpheus AI × Hugging Face</p>
+        <p style="color:#64748b;margin-top:6px;font-size:15px;">Powered by Morpheus AI</p>
     </div>
     """)
 
     overlay = gr.HTML(value="", visible=False)
 
-    # ── Centered input section ───────────────────────────────────
     with gr.Column(elem_id="input-section"):
         job_input = gr.Textbox(
             label="📋 Job Description",
@@ -273,9 +639,84 @@ with gr.Blocks(title="🤖 Intelligent Recruiter", theme=gr.themes.Soft(), css=c
             label="💡 Example Job Descriptions (click to try)"
         )
 
-    # ── Full-width results section ───────────────────────────────
     with gr.Column(elem_id="results-section"):
         output = gr.HTML(label="Results")
+        contact_result = gr.Textbox(
+            value="",
+            visible=True,
+            show_label=False,
+            container=True,
+            interactive=False,
+            elem_id="contact-result-box"
+        )
+
+        # Hidden preview/send bridges for modal flow
+        preview_input = gr.Textbox(
+            value="",
+            visible=True,
+            show_label=False,
+            container=True,
+            elem_id="preview-input-box"
+        )
+        preview_result = gr.Textbox(
+            value="",
+            visible=True,
+            show_label=False,
+            container=True,
+            interactive=False,
+            elem_id="preview-result-box"
+        )
+
+        modal_send_input = gr.Textbox(
+            value="",
+            visible=True,
+            show_label=False,
+            container=True,
+            elem_id="modal-send-input-box"
+        )
+        modal_send_result = gr.Textbox(
+            value="",
+            visible=True,
+            show_label=False,
+            container=True,
+            interactive=False,
+            elem_id="modal-send-result-box"
+        )
+
+    contact_input = gr.Textbox(
+        value="",
+        visible=True,
+        show_label=False,
+        container=True,
+        elem_id="contact-input-box"
+    )
+
+    def handle_contact_click(candidate_id_str):
+        if not candidate_id_str.strip():
+            return gr.update(value="")
+        try:
+            result = contact_candidate_fn(candidate_id_str.strip())
+            return gr.update(value=result)
+        except Exception as e:
+            return gr.update(value=f"❌ Error: {str(e)}")
+
+    contact_input.change(
+        fn=handle_contact_click,
+        inputs=[contact_input],
+        outputs=[contact_result]
+    )
+
+    preview_input.change(
+        fn=preview_email_fn,
+        inputs=[preview_input],
+        outputs=[preview_result]
+    )
+
+    modal_send_input.change(
+        fn=modal_send_fn,
+        inputs=[modal_send_input],
+        outputs=[modal_send_result, contact_result]
+    )
 
     run_btn.click(
         fn=run_recruiter,
@@ -283,4 +724,4 @@ with gr.Blocks(title="🤖 Intelligent Recruiter", theme=gr.themes.Soft(), css=c
         outputs=[overlay, output, job_input, num_slider, run_btn]
     )
 
-demo.launch()
+demo.launch(theme=gr.themes.Soft(), css=custom_css, js=custom_js)

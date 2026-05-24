@@ -1,91 +1,62 @@
-from datasets import load_dataset
+import json
 
-def flatten_resume(resume: dict) -> str:
-    """Convert structured resume JSON into readable text for the LLM."""
+def flatten_resume(candidate: dict) -> str:
     parts = []
 
-    if resume.get("summary"):
-        parts.append(f"SUMMARY: {resume['summary']}")
+    if candidate.get("summary"):
+        parts.append(f"SUMMARY: {candidate['summary']}")
 
-    if resume.get("skills"):
-        skills = resume["skills"]
-        if isinstance(skills, dict):
-            for category, items in skills.items():
-                if isinstance(items, list):
-                    # Handle list of strings
-                    str_items = []
-                    for item in items:
-                        if isinstance(item, str):
-                            str_items.append(item)
-                        elif isinstance(item, dict):
-                            # Extract any string values from the dict
-                            str_items.extend([str(v) for v in item.values() if v])
-                    if str_items:
-                        parts.append(f"SKILLS - {category.upper()}: {', '.join(str_items)}")
-        elif isinstance(skills, list):
-            str_skills = []
-            for item in skills:
-                if isinstance(item, str):
-                    str_skills.append(item)
-                elif isinstance(item, dict):
-                    str_skills.extend([str(v) for v in item.values() if v])
-            if str_skills:
-                parts.append(f"SKILLS: {', '.join(str_skills)}")
+    if candidate.get("skills"):
+        skills = candidate["skills"]
+        for category, items in skills.items():
+            if isinstance(items, list) and items:
+                parts.append(f"SKILLS - {category.upper()}: {', '.join(items)}")
 
-    if resume.get("experience"):
+    if candidate.get("experience"):
         parts.append("EXPERIENCE:")
-        for exp in resume["experience"][:3]:
-            if isinstance(exp, dict):
-                title = exp.get("title", "")
-                company = exp.get("company", "")
-                duration = exp.get("duration", "")
-                parts.append(f"  - {title} at {company} ({duration})")
-                responsibilities = exp.get("responsibilities", [])
-                if responsibilities and isinstance(responsibilities, list):
-                    # Handle if responsibilities are strings or dicts
-                    for r in responsibilities[:2]:
-                        if isinstance(r, str):
-                            parts.append(f"    • {r}")
-                        elif isinstance(r, dict):
-                            parts.append(f"    • {' '.join(str(v) for v in r.values() if v)}")
+        for exp in candidate["experience"]:
+            parts.append(f"  - {exp.get('title')} at {exp.get('company')} ({exp.get('duration', '')})")
+            for r in exp.get("responsibilities", [])[:2]:
+                parts.append(f"    • {r}")
 
-    if resume.get("education"):
+    if candidate.get("education"):
         parts.append("EDUCATION:")
-        for edu in resume["education"]:
-            if isinstance(edu, dict):
-                degree = edu.get("degree", "")
-                institution = edu.get("institution", "")
-                parts.append(f"  - {degree} from {institution}")
+        for edu in candidate["education"]:
+            parts.append(f"  - {edu.get('degree')} in {edu.get('field')} from {edu.get('institution')} — CGPA: {edu.get('cgpa')}")
+
+    if candidate.get("certifications"):
+        parts.append(f"CERTIFICATIONS: {', '.join(candidate['certifications'])}")
+
+    if candidate.get("languages"):
+        parts.append(f"LANGUAGES: {', '.join(candidate['languages'])}")
 
     return "\n".join(parts)
 
 
 def prepare_candidates(limit=15):
-    """Load candidates from Hugging Face dataset."""
-    print("📥 Loading dataset from Hugging Face...")
-    dataset = load_dataset("datasetmaster/resumes", split="train")
+    print("📥 Loading dataset from local JSON...")
 
-    # Debug: print first row keys so we know the structure
-    first_row = dataset[0]
-    print(f"📋 Dataset columns: {list(first_row.keys())}")
+    with open("candidates_dataset.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
 
     candidates = []
-    for i, row in enumerate(dataset):
-        if i >= limit:
-            break
-
-        resume_text = flatten_resume(row)
-
-        # Skip if resume text is too short (bad data)
-        if len(resume_text) < 50:
-            continue
-
-        candidate = {
-            "id": i + 1,
-            "name": row.get("name", f"Candidate {i + 1}"),
-            "resume_text": resume_text
-        }
-        candidates.append(candidate)
+    for candidate in data["candidates"][:limit]:
+        candidates.append({
+            "id": candidate["id"],
+            "name": candidate["name"],
+            "current_role": candidate["current_role"],
+            "years_experience": candidate["years_experience"],
+            "location": candidate.get("location", "Malaysia"),
+            "email": candidate.get("email", ""),
+            "phone": candidate.get("phone", ""),
+            "summary": candidate.get("summary", ""),
+            "education": candidate.get("education", []),
+            "experience": candidate.get("experience", []),
+            "skills": candidate.get("skills", {}),
+            "certifications": candidate.get("certifications", []),
+            "languages": candidate.get("languages", []),
+            "resume_text": flatten_resume(candidate)
+        })
 
     print(f"✅ Loaded {len(candidates)} candidates")
     return candidates

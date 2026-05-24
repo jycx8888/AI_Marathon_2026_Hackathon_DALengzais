@@ -57,7 +57,6 @@ Return ONLY valid JSON, no extra text:
     )
 
     raw = response.choices[0].message.content
-    # Clean up in case model adds markdown fences
     raw = raw.replace("```json", "").replace("```", "").strip()
 
     result = json.loads(raw)
