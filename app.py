@@ -251,7 +251,13 @@ def preview_email_fn(candidate_id_str):
     """Return candidate info and AI-generated draft as JSON string for the modal preview."""
     if not candidate_id_str or not candidate_id_str.strip():
         return ""
-    candidate = next((c for c in current_ranked if c["id"] == int(candidate_id_str)), None)
+    try:
+        payload = json.loads(candidate_id_str)
+        candidate_id = payload.get("candidate_id", candidate_id_str)
+    except Exception:
+        candidate_id = candidate_id_str
+
+    candidate = next((c for c in current_ranked if c["id"] == int(candidate_id)), None)
     if not candidate:
         return json.dumps({"error": "Candidate not found."})
     try:
@@ -353,6 +359,27 @@ footer { display: none !important; }
 """
 
 custom_js = """
+function getContactButtons() {
+    return Array.from(document.querySelectorAll('#results-section button[onclick*="handleContact("]'));
+}
+
+function setContactButtonsEnabled(enabled, activeButton) {
+    getContactButtons().forEach((button) => {
+        if (activeButton && button === activeButton) {
+            return;
+        }
+        button.disabled = !enabled;
+        button.style.opacity = enabled ? '1' : '0.45';
+        button.style.cursor = enabled ? 'pointer' : 'not-allowed';
+    });
+
+    if (activeButton) {
+        activeButton.disabled = !enabled;
+        activeButton.style.opacity = enabled ? '1' : '0.7';
+        activeButton.style.cursor = enabled ? 'pointer' : 'not-allowed';
+    }
+}
+
 function handleContact(candidateId, btn) {
     if (btn.disabled) {
         return;
@@ -372,6 +399,8 @@ function handleContact(candidateId, btn) {
         return;
     }
 
+    setContactButtonsEnabled(false, btn);
+
     // Clear any previous preview result to avoid stale data
     if (resultField) {
         try {
@@ -387,8 +416,9 @@ function handleContact(candidateId, btn) {
         }
     }
 
-    // Request AI draft for this candidate
-    const value = String(candidateId);
+    // Request AI draft for this candidate. Include a nonce so clicking the same
+    // candidate again still triggers a fresh Gradio change event.
+    const value = JSON.stringify({ candidate_id: String(candidateId), request_id: Date.now() + Math.random() });
     const valueSetter = Object.getOwnPropertyDescriptor(
         hiddenInput.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
         'value'
@@ -415,15 +445,13 @@ function handleContact(candidateId, btn) {
         } catch (e) {
             console.error('Invalid preview payload', e);
             btn.textContent = originalLabel;
-            btn.disabled = false;
-            btn.style.opacity = '1';
+            setContactButtonsEnabled(true, btn);
             return;
         }
 
         if (data.error) {
             btn.textContent = '❌ Preview failed';
-            btn.disabled = false;
-            btn.style.opacity = '1';
+            setContactButtonsEnabled(true, btn);
             return;
         }
 
@@ -443,7 +471,7 @@ function handleContact(candidateId, btn) {
         const closeBtn = document.createElement('button');
         closeBtn.innerText = '✖';
         closeBtn.style = 'position:absolute;right:12px;top:10px;border:none;background:transparent;font-size:18px;cursor:pointer;';
-        closeBtn.onclick = () => { overlay.remove(); btn.textContent = originalLabel; btn.disabled = false; btn.style.opacity='1'; if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){}} };
+        closeBtn.onclick = () => { overlay.remove(); btn.textContent = originalLabel; setContactButtonsEnabled(true, btn); if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){}} };
         modal.appendChild(closeBtn);
 
         const title = document.createElement('div');
@@ -544,7 +572,7 @@ function handleContact(candidateId, btn) {
         const cancelBtn = document.createElement('button');
         cancelBtn.innerText = 'Cancel';
         cancelBtn.style = 'padding:10px 14px;border-radius:8px;border:1px solid #e5e7eb;background:white;cursor:pointer;';
-        cancelBtn.onclick = () => { overlay.remove(); btn.textContent = originalLabel; btn.disabled = false; btn.style.opacity='1'; if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } };
+        cancelBtn.onclick = () => { overlay.remove(); btn.textContent = originalLabel; setContactButtonsEnabled(true, btn); if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } };
         footer.appendChild(cancelBtn);
 
         const sendBtn = document.createElement('button');
@@ -598,7 +626,7 @@ function handleContact(candidateId, btn) {
                 }
                 // show brief confirmation then close
                 sendBtn.innerText = '✅ Sent';
-                setTimeout(() => { overlay.remove(); btn.textContent = '✅ Sent successfully'; btn.disabled = true; btn.style.opacity='0.7'; if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } }, 700);
+                setTimeout(() => { overlay.remove(); btn.textContent = '✅ Sent successfully'; setContactButtonsEnabled(true); if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } }, 700);
             }, 250);
         };
     }, 200);
