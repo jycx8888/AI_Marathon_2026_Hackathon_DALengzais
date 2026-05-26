@@ -3,10 +3,13 @@ from agent import rank_candidates
 from data_loader import prepare_candidates
 from email_agent import contact_candidate
 from email_agent import generate_email_content, send_email
+from history_manager import add_to_history, toggle_like, get_all_history
+from agent import rank_candidates, generate_job_title
 import json
 
 current_job_description = ""
 current_ranked = []
+history_warning_message = ""
 
 def make_overlay(percent, message, done=False):
     color = "#22c55e" if done else "#6366f1"
@@ -49,6 +52,94 @@ def make_overlay(percent, message, done=False):
     </div>
     """
     return gr.update(value=html, visible=True)
+
+def make_history_html(warning_message=None):
+    """Build the history section HTML."""
+    if warning_message is None:
+        warning_message = history_warning_message
+
+    liked, recent = get_all_history()
+
+    warning_html = ""
+    if warning_message:
+        warning_html = f'''
+        <div style="margin:0 0 16px 0;padding:12px 14px;border-radius:12px;
+            background:#fff7ed;border:1px solid #fdba74;color:#9a3412;
+            font-size:14px;font-weight:600;">
+            {warning_message}
+        </div>
+        '''
+
+    if not liked and not recent:
+        return f"""
+        {warning_html}
+        <div style="background:#f8fafc;border-radius:12px;padding:14px 18px;
+            border:1.5px dashed #e2e8f0;text-align:center;color:#94a3b8;font-size:13px;">
+            📋 No search history yet. Your past searches will appear here.
+        </div>
+        """
+
+    items_html = ""
+
+    for item in liked:
+        items_html += f"""
+        <div style="display:flex;align-items:center;justify-content:space-between;
+            padding:10px 14px;background:#ede9fe;border-radius:10px;
+            border-left:3px solid #6366f1;cursor:pointer;gap:10px;"
+            onclick="loadHistory(`{item['job_description'].replace('`', chr(96))}`)"
+            title="Click to load this search">
+            <div style="flex:1;min-width:0;">
+                <div style="font-size:13px;font-weight:700;color:#4338ca;
+                    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                    📌 {item['title']}
+                </div>
+                <div style="font-size:11px;color:#7c3aed;margin-top:1px;">
+                    {item['timestamp']}
+                </div>
+            </div>
+            <button onclick="event.stopPropagation();toggleLike('{item['id']}')"
+                title="Unlike to unpin"
+                style="background:none;border:none;font-size:18px;cursor:pointer;
+                flex-shrink:0;padding:2px 4px;border-radius:6px;line-height:1;"
+                onmouseover="this.style.background='#ddd6fe'"
+                onmouseout="this.style.background='none'">❤️</button>
+        </div>
+        """
+
+    for item in recent:
+        items_html += f"""
+        <div style="display:flex;align-items:center;justify-content:space-between;
+            padding:10px 14px;background:white;border-radius:10px;
+            border:1.5px solid #f1f5f9;cursor:pointer;gap:10px;
+            transition:background 0.15s;"
+            onclick="loadHistory(`{item['job_description'].replace('`', chr(96))}`)"
+            onmouseover="this.style.background='#f8fafc'"
+            onmouseout="this.style.background='white'"
+            title="Click to load this search">
+            <div style="flex:1;min-width:0;">
+                <div style="font-size:13px;font-weight:600;color:#1e293b;
+                    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                    🕐 {item['title']}
+                </div>
+                <div style="font-size:11px;color:#94a3b8;margin-top:1px;">
+                    {item['timestamp']}
+                </div>
+            </div>
+            <button onclick="event.stopPropagation();toggleLike('{item['id']}')"
+                title="Like to pin"
+                style="background:none;border:none;font-size:18px;cursor:pointer;
+                flex-shrink:0;padding:2px 4px;border-radius:6px;line-height:1;"
+                onmouseover="this.style.background='#f1f5f9'"
+                onmouseout="this.style.background='none'">🤍</button>
+        </div>
+        """
+
+    return f"""
+    {warning_html}
+    <div style="display:flex;flex-direction:column;gap:8px;">
+        {items_html}
+    </div>
+    """
 
 
 def make_cards(ranked):
@@ -205,29 +296,61 @@ def run_recruiter(job_description, num_candidates):
     global current_job_description, current_ranked
 
     if not job_description.strip():
-        yield (gr.update(value="", visible=False), "⚠️ Please enter a job description.",
-               gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True))
+        yield (
+            gr.update(value="", visible=False),
+            "⚠️ Please enter a job description.",
+            gr.update(interactive=True),
+            gr.update(interactive=True),
+            gr.update(interactive=True),
+            make_history_html(),
+        )
         return
 
-    yield (make_overlay(10, "📥 Connecting to Hugging Face dataset..."),
-           "", gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False))
+    yield (
+        make_overlay(10, "📥 Connecting to dataset..."),
+        "",
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        make_history_html(),
+    )
 
     candidates = prepare_candidates(limit=int(num_candidates))
 
-    yield (make_overlay(45, f"✅ Loaded {len(candidates)} candidates! Sending to Morpheus AI..."),
-           "", gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False))
+    yield (
+        make_overlay(45, f"✅ Loaded {len(candidates)} candidates! Sending to Morpheus AI..."),
+        "",
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        make_history_html(),
+    )
 
-    yield (make_overlay(65, "🤖 AI is analyzing and ranking resumes..."),
-           "", gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False))
+    yield (
+        make_overlay(65, "🤖 AI is analyzing and ranking resumes..."),
+        "",
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        make_history_html(),
+    )
 
     ranked = rank_candidates(job_description, candidates)
     candidate_lookup = {candidate["id"]: candidate for candidate in candidates}
     ranked = [{**candidate_lookup.get(item["id"], {}), **item} for item in ranked]
     current_job_description = job_description
     current_ranked = ranked
+    title = generate_job_title(job_description)
+    add_to_history(job_description, title)
 
-    yield (make_overlay(90, "📊 Finalizing ranked results..."),
-           "", gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False))
+    yield (
+        make_overlay(90, "📊 Finalizing ranked results..."),
+        "",
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        gr.update(interactive=False),
+        make_history_html(),
+    )
 
     cards = make_cards(ranked)
 
@@ -237,6 +360,7 @@ def run_recruiter(job_description, num_candidates):
         gr.update(interactive=True),
         gr.update(interactive=True),
         gr.update(interactive=True),
+        make_history_html(),
     )
 
 def contact_candidate_fn(candidate_id):
@@ -356,6 +480,10 @@ footer { display: none !important; }
     font-weight: 500 !important;
     opacity: 1 !important;
 }
+
+#like-input-box {
+    display: none !important;
+}
 """
 
 custom_js = """
@@ -385,7 +513,6 @@ function handleContact(candidateId, btn) {
         return;
     }
 
-    // Use preview flow: request AI draft, then show modal for editing & sending.
     const previewBox = document.getElementById('preview-input-box');
     const hiddenInput = previewBox && previewBox.querySelector('textarea, input');
     const resultBox = document.getElementById('preview-result-box');
@@ -401,7 +528,6 @@ function handleContact(candidateId, btn) {
 
     setContactButtonsEnabled(false, btn);
 
-    // Clear any previous preview result to avoid stale data
     if (resultField) {
         try {
             const clearSetter = Object.getOwnPropertyDescriptor(
@@ -416,8 +542,6 @@ function handleContact(candidateId, btn) {
         }
     }
 
-    // Request AI draft for this candidate. Include a nonce so clicking the same
-    // candidate again still triggers a fresh Gradio change event.
     const value = JSON.stringify({ candidate_id: String(candidateId), request_id: Date.now() + Math.random() });
     const valueSetter = Object.getOwnPropertyDescriptor(
         hiddenInput.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype,
@@ -455,7 +579,6 @@ function handleContact(candidateId, btn) {
             return;
         }
 
-        // Build modal DOM
         if (document.getElementById('candidate-modal-overlay')) {
             document.getElementById('candidate-modal-overlay').remove();
         }
@@ -478,7 +601,6 @@ function handleContact(candidateId, btn) {
         title.innerHTML = `<h3 style="margin:6px 0 8px 0;color:#111827;font-size:18px;">Contact Preview — ${data.candidate.name}</h3>`;
         modal.appendChild(title);
 
-        // Candidate info
         const info = document.createElement('div');
         info.style = 'font-size:13px;color:#374151;margin-bottom:12px;';
         const ci = data.candidate;
@@ -544,7 +666,6 @@ function handleContact(candidateId, btn) {
 
         modal.appendChild(info);
 
-        // Subject
         const subjLabel = document.createElement('div');
         subjLabel.innerText = 'Subject';
         subjLabel.style = 'font-weight:700;margin-bottom:6px;color:#111827;';
@@ -555,7 +676,6 @@ function handleContact(candidateId, btn) {
         subjArea.value = data.draft.subject || '';
         modal.appendChild(subjArea);
 
-        // Body
         const bodyLabel = document.createElement('div');
         bodyLabel.innerText = 'Email';
         bodyLabel.style = 'font-weight:700;margin-bottom:6px;color:#111827;';
@@ -566,7 +686,6 @@ function handleContact(candidateId, btn) {
         bodyArea.value = data.draft.body || '';
         modal.appendChild(bodyArea);
 
-        // Buttons
         const footer = document.createElement('div');
         footer.style = 'display:flex;gap:8px;justify-content:flex-end;';
         const cancelBtn = document.createElement('button');
@@ -585,7 +704,6 @@ function handleContact(candidateId, btn) {
         overlay.appendChild(modal);
         document.body.appendChild(overlay);
 
-        // Send handler
         sendBtn.onclick = () => {
             sendBtn.disabled = true;
             sendBtn.innerText = '⏳ Sending...';
@@ -604,7 +722,6 @@ function handleContact(candidateId, btn) {
             sendHidden.dispatchEvent(new Event('input', { bubbles: true }));
             sendHidden.dispatchEvent(new Event('change', { bubbles: true }));
 
-            // watch for send result
             const sendWatcher = setInterval(() => {
                 const sendResBox = document.getElementById('modal-send-result-box');
                 const sendResField = sendResBox && sendResBox.querySelector('textarea, input');
@@ -612,7 +729,7 @@ function handleContact(candidateId, btn) {
                 const r = sendResField.value || '';
                 if (!r) return;
                 clearInterval(sendWatcher);
-                // propagate to contact-result-box so original button watcher updates
+                
                 const contactResBox = document.getElementById('contact-result-box');
                 const contactResField = contactResBox && contactResBox.querySelector('textarea, input');
                 if (contactResField) {
@@ -624,12 +741,36 @@ function handleContact(candidateId, btn) {
                     contactResField.dispatchEvent(new Event('input', { bubbles: true }));
                     contactResField.dispatchEvent(new Event('change', { bubbles: true }));
                 }
-                // show brief confirmation then close
+
                 sendBtn.innerText = '✅ Sent';
                 setTimeout(() => { overlay.remove(); btn.textContent = '✅ Sent successfully'; setContactButtonsEnabled(true); if (resultField) { try { const cs = Object.getOwnPropertyDescriptor(resultField.tagName === 'TEXTAREA' ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype, 'value').set; cs.call(resultField, ''); resultField.dispatchEvent(new Event('input', { bubbles: true })); resultField.dispatchEvent(new Event('change', { bubbles: true })); } catch(e){} } }, 700);
             }, 250);
         };
     }, 200);
+}
+
+function loadHistory(jobDesc) {
+    const textarea = document.querySelector('#input-section textarea');
+    if (textarea) {
+        const setter = Object.getOwnPropertyDescriptor(
+            window.HTMLTextAreaElement.prototype, 'value').set;
+        setter.call(textarea, jobDesc);
+        textarea.dispatchEvent(new Event('input', { bubbles: true }));
+        textarea.dispatchEvent(new Event('change', { bubbles: true }));
+        textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+function toggleLike(itemId) {
+    const likeBox = document.getElementById('like-input-box');
+    if (!likeBox) return;
+    const textarea = likeBox.querySelector('textarea');
+    if (!textarea) return;
+    const setter = Object.getOwnPropertyDescriptor(
+        window.HTMLTextAreaElement.prototype, 'value').set;
+    setter.call(textarea, String(itemId));
+    textarea.dispatchEvent(new Event('input', { bubbles: true }));
+    textarea.dispatchEvent(new Event('change', { bubbles: true }));
 }
 """
 
@@ -665,6 +806,29 @@ with gr.Blocks(title="🤖 Intelligent Recruiter") as demo:
             ],
             inputs=[job_input, num_slider],
             label="💡 Example Job Descriptions (click to try)"
+        )
+
+        gr.Markdown("### 🕐 Search History")
+        history_display = gr.HTML(value=make_history_html(), label="history")
+
+        like_input = gr.Textbox(value="", visible=True, show_label=False, container=True, elem_id="like-input-box")
+
+        def handle_like_toggle(item_id_str):
+            global history_warning_message
+            if not item_id_str.strip():
+                return gr.update(), make_history_html()
+            history, msg = toggle_like(item_id_str.strip())
+            if msg == "ok":
+                history_warning_message = ""
+                return gr.update(value=""), make_history_html()
+
+            history_warning_message = msg
+            return gr.update(value=""), make_history_html(msg)
+
+        like_input.change(
+            fn=handle_like_toggle,
+            inputs=[like_input],
+            outputs=[like_input, history_display]
         )
 
     with gr.Column(elem_id="results-section"):
@@ -749,7 +913,7 @@ with gr.Blocks(title="🤖 Intelligent Recruiter") as demo:
     run_btn.click(
         fn=run_recruiter,
         inputs=[job_input, num_slider],
-        outputs=[overlay, output, job_input, num_slider, run_btn]
+        outputs=[overlay, output, job_input, num_slider, run_btn, history_display]
     )
 
 demo.launch(theme=gr.themes.Soft(), css=custom_css, js=custom_js)

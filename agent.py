@@ -61,3 +61,19 @@ Return ONLY valid JSON, no extra text:
 
     result = json.loads(raw)
     return result["ranked_candidates"]
+
+def generate_job_title(job_description: str) -> str:
+    """Extract a short title from the job description using Morpheus AI."""
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.3-70b",
+            messages=[
+                {"role": "system", "content": "Extract the job title only. Return 2-4 words maximum. No punctuation. Examples: 'Senior Backend Engineer', 'Data Scientist', 'DevOps Engineer'"},
+                {"role": "user", "content": f"Extract job title from:\n{job_description[:300]}"}
+            ],
+            temperature=0,
+            max_tokens=20
+        )
+        return response.choices[0].message.content.strip()
+    except:
+        return job_description[:40].strip()
