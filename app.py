@@ -779,7 +779,7 @@ with gr.Blocks(title="🤖 Intelligent Recruiter") as demo:
     gr.Markdown("""
     <div style="text-align:center;padding:24px 0 8px 0;">
         <div style="font-size:36px;margin-bottom:8px;">🤖</div>
-        <h1 style="font-size:28px;font-weight:800;color:#6366f1;margin:0;">RecruQ</h1>
+        <h1 style="font-size:28px;font-weight:800;color:#ffffff;margin:0;">RecruQ</h1>
         <h2 style="font-size:28px;font-weight:800;color:#6366f1;margin:0;">Intelligent Recruiter Agent</h2>
         <p style="color:#64748b;margin-top:6px;font-size:15px;">Powered by Morpheus AI</p>
     </div>
