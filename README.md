@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/RecruIQ-AI%20Recruitment%20Agent-6366f1?style=for-the-badge&logo=robot&logoColor=white"/>
+<img src="https://img.shields.io/badge/RecruQ-AI%20Recruitment%20Agent-6366f1?style=for-the-badge&logo=robot&logoColor=white"/>
 
-<h1>RecruIQ 🤖</h1>
+<h1>RecruQ 🤖</h1>
 <h3>AI-Powered Intelligent Recruitment Agent</h3>
 <p><em>Bridging diverse talent and hiring managers through intelligent automation</em></p>
 
@@ -103,27 +103,9 @@ RecruQ sends emails via Gmail SMTP. You need a **Gmail App Password** (not your 
 
 ## ⚙️ Installation
 
-### Step 1 — Clone the repository
+### Step 1 — Download and Extract the ZIP file
 
-```bash
-git clone https://github.com/yourusername/recruiq.git
-cd recruiq
-```
-
-### Step 2 — Create a virtual environment (recommended)
-
-```bash
-# Create
-python -m venv venv
-
-# Activate on Windows
-venv\Scripts\activate
-
-# Activate on Mac/Linux
-source venv/bin/activate
-```
-
-> You should see `(venv)` appear at the start of your terminal line when it's active.
+### Step 2 — Open the file
 
 ### Step 3 — Install dependencies
 
@@ -149,9 +131,9 @@ You should see: `All dependencies installed!`
 
 ## 🔧 Configuration
 
-### Step 1 — Create a `.env` file
+### Step 1 — Edit `.env` file
 
-In the root project folder, create a new file named `.env` and fill in your credentials:
+Edit the file named `.env` and fill in your credentials:
 
 ```env
 MORPHEUS_API_KEY=your_morpheus_api_key_here
@@ -181,7 +163,7 @@ Make sure `candidates_dataset.json` is in the root project folder.
 Your final project structure should look like this:
 
 ```
-recruiq/
+recruq/
 ├── .env                       ← your credentials (never commit!)
 ├── .gitignore
 ├── candidates_dataset.json    ← 50 Malaysian candidate profiles
@@ -333,7 +315,7 @@ Find any candidate entry, for example:
 
 **Verify send without UI (optional terminal test):**
 ```bash
-python -c "from email_agent import send_email; result = send_email('youremail@gmail.com', 'RecruIQ Test', 'Email agent is working!'); print('Success!' if result else 'Failed!')"
+python -c "from email_agent import send_email; result = send_email('youremail@gmail.com', 'RecruQ Test', 'Email agent is working!'); print('Success!' if result else 'Failed!')"
 ```
 
 ---
@@ -382,7 +364,7 @@ Find any candidate entry, for example:
 
 **Verify send without UI (optional terminal test):**
 ```bash
-python -c "from email_agent import send_email; result = send_email('youremail@gmail.com', 'RecruIQ Test', 'Email agent is working!'); print('Success!' if result else 'Failed!')"
+python -c "from email_agent import send_email; result = send_email('youremail@gmail.com', 'RecruQ Test', 'Email agent is working!'); print('Success!' if result else 'Failed!')"
 ```
 
 ---
