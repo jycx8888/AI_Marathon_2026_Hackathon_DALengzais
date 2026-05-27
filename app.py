@@ -459,7 +459,6 @@ custom_css = """
     display: none !important;
 }
 
-/* Ensure modal uses the same font stack as Gradio's app theme */
 #candidate-modal-overlay,
 #candidate-modal-overlay *,
 #candidate-modal,
@@ -843,7 +842,6 @@ with gr.Blocks(title="🤖 Intelligent Recruiter") as demo:
             elem_id="contact-result-box"
         )
 
-        # Hidden preview/send bridges for modal flow
         preview_input = gr.Textbox(
             value="",
             visible=True,
